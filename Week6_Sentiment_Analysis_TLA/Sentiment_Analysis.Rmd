@@ -1,0 +1,197 @@
+---
+title: "Sentiment_Analysis"
+author: "Tonatiuh Leung-Arellano"
+date: "2026-10-07"
+output: html_document
+---
+
+# Loading libraries
+```{r}
+library(tidyverse)
+library(sentimentr)
+library(tidyr)
+library(magrittr)
+```
+
+# Deaf_Tech_Sentiment dataframe loading
+```{r}
+DTS <- read_csv(file="DTS_articles.csv") |> 
+    mutate(id = row_number())
+```
+
+# Condensing DTS dataframe to just the columns needed
+# NA values in sentence column are removed
+```{r}
+DTS_analyze <- DTS |> 
+  filter(!is.na(sentence)) |> 
+  select(sentence, id)
+```
+
+
+# 1. Split into sentences and calculate sentiment at the sentence level
+```{r}
+DTS_sentiment <- DTS_analyze %>%
+  get_sentences() %>%
+  sentiment_by(by = c("id"))
+```
+
+# Describing DTS sentiments in context
+```{r}
+
+print(paste0("From this exercise, the most positive sentence in the DTS database was scored at ", max(DTS_sentiment$ave_sentiment), " while the most negative was scored at ", min(DTS_sentiment$ave_sentiment),". For context, the median value was ", median(DTS_sentiment$ave_sentiment), " and the standard deviation was ", sd(DTS_sentiment$ave_sentiment), "."))
+        
+```
+
+
+##############
+### PART 2 ###
+##############
+
+# Adding a year column to DTS to track and group by year
+```{r}
+DTS <- DTS |> 
+  mutate(year = year(DTS$published_date))
+```
+
+# summary() to find which year should be the midpoint cutoff for two periods to analyze
+```{r}
+summary(DTS$year)
+```
+
+# Explaining findings from previous two code blocks
+```{r}
+print(paste0("From a summarization of the newly created year column in the DTS dataframe. We can see that the minimum year is ", min(DTS$year), ", the max year is ", max(DTS$year), ", and the median year is ", median(DTS$year), ". The mean for all the years is ", mean(DTS$year), "."))
+```
+
+# From the above, we can see that the median year is the same as the max year. This doesn't bode well, so I added a piece to look at the mean for all the years. Same issue, the mean, median, and max are all basically 2026 where the mean is 0.08 away from being 2026. This isn't incredibly surprising, as I was aware that these articles are very recent due to DTS being a developing field. This is an issue though, as the assignment asks me to split the articles into two groups by date, older and newer. So ideally I'd split it down the half, but the half still lands in 2026. To remedy this, I'll split it by the published_date column instead of year, since it is unreasonable to split by year.
+
+```{r}
+summary(DTS$published_date)
+```
+
+# Explaining findings from summarizing published_date column
+```{r}
+print(paste0("From a summarization of the newly created year column in the DTS dataframe. We can see that the minimum date is ", min(DTS$published_date), ", the max date is ", max(DTS$published_date), ", and the median date is ", median(DTS$published_date), "."))
+```
+
+# Since we have some data and a median that is acceptable, we can split the DTS dataframe into two using the median value as our divider
+
+```{r}
+DTS_inorder <- DTS |> 
+  group_by(published_date) |> 
+  arrange(desc(published_date))
+```
+
+```{r}
+DTS_older <- DTS |> 
+  filter(published_date <= "2026-07-03")
+
+DTS_newer <- DTS |> 
+  filter(published_date > "2026-07-03")
+```
+
+# Checking that both of the newer and older DTS dataframes don't have a giant disparity in amount of rows
+```{r}
+nrow(DTS_older)
+nrow(DTS_newer)
+```
+
+# Yippie, now let's get sentiments and describe
+
+# Condensing to only needed columns
+```{r}
+Older_analyze <- DTS_older |> 
+  filter(!is.na(sentence)) |> 
+  select(sentence, id)
+
+Newer_analyze <- DTS_newer |> 
+  filter(!is.na(sentence)) |> 
+  select(sentence, id)
+```
+
+
+# 1. Split into sentences and calculate sentiment at the sentence level
+```{r}
+Older_sentiment <- Older_analyze %>%
+  get_sentences() %>%
+  sentiment_by(by = c("id"))
+
+Newer_sentiment <- Newer_analyze %>%
+  get_sentences() %>%
+  sentiment_by(by = c("id"))
+```
+
+# Describing older and newer sentiments in context
+```{r}
+
+print(paste0("The most positive sentence in the older DTS database was scored at ", max(Older_sentiment$ave_sentiment), " while the most negative was scored at ", min(Older_sentiment$ave_sentiment),". For context, the median value was ", median(Older_sentiment$ave_sentiment), " and the standard deviation was ", sd(Older_sentiment$ave_sentiment), "."))
+
+print("")
+
+print(paste0("The most positive sentence in the newer DTS database was scored at ", max(Newer_sentiment$ave_sentiment), " while the most negative was scored at ", min(Newer_sentiment$ave_sentiment),". For context, the median value was ", median(Newer_sentiment$ave_sentiment), " and the standard deviation was ", sd(Newer_sentiment$ave_sentiment), "."))
+        
+```
+
+
+##############
+### PART 3 ###
+##############
+
+# Highlighting sentences!
+
+```{r}
+DTS_sentences <- DTS_analyze |> 
+  get_sentences() |> 
+  sentiment()
+
+
+DTS_sentences %>%
+    mutate(review = get_sentences(sentence)) %$%
+    sentiment_by(review, sentence_id) %>%
+    highlight()
+
+```
+
+# Analysis of highlighting:
+# The highlighting function is undoubtedly useful. It transfers thick dataframes to human-friendly and much more readable formats while pointing out positive, negative, and neutral sentiments among sentences.
+# With that being said, I noticed an issue from a few highlighted sentences. THis is not an issue with the highlighter but an issue with the sentiment analysis. The grading for some sentences marked as having a negative sentiment aren't actually negative in nature. Take: "The university''s National Technical Institute for the Deaf is the first and largest technological college for learners who suffer from hearing loss." for example. This sentence was marked with a sentiment number of -.417. But in nature it is neutral leaning positive, having a university that gives attention to deaf people is in nature good. However the sentiment marked it as negative, which is likely attributed to the word deaf, suffer, and loss being in the sentence. sentimentr analyzes based on word, not context to my understanding. 
+# Most sentiment rankings are correct in the dataframe, my point in the previous paragraph is to showcase that it's not 100% correct all the time. Thus, while the sentiment analysis is good and highlighting easily reveals great findings, it is also important to analyze the highlighted output yourself to confirm the findings. 
+
+
+
+##############
+### PART 4 ###
+##############
+
+# Running the DTS_analyze dataframe against sentimentr's hash_internet_slang data package
+```{r}
+DTS_slang <- DTS_analyze |> 
+  get_sentences() |> 
+  sentiment_by(by = c("id"), polarity_dt = lexicon::hash_sentiment_slangsd)
+```
+
+# Describing DTS_slang findings
+```{r}
+print(paste0("The most positive sentence in the DTS_slang database was scored at ", max(DTS_slang$ave_sentiment), " while the most negative was scored at ", min(DTS_slang$ave_sentiment),". For context, the median value was ", median(DTS_slang$ave_sentiment), " and the standard deviation was ", sd(DTS_slang$ave_sentiment), ". This uses the lexicon's data package containing a list of internet slang and corresponding meanings to rate sentiments in each sentence."))
+```
+
+# Highlighting
+```{r}
+DTS_sentences |> 
+    mutate(review = get_sentences(sentence)) %$%
+    sentiment_by(review, sentence_id, polarity_dt = lexicon::hash_sentiment_slangsd) |> 
+    highlight()
+```
+
+# Analysis:
+# Upon reviewing the highlighted sentiment analysis using the internet slang database on DTS, I found that the sentiment grading was off for pretty much all sentences that were graded. Many sentences were not graded, but those that were didn't use any slang so they shouldn't have been graded. It also felt that there was no reason or rhyme towards what was being graded as negative or positive, as many (but not all) graded sentences that were positive would be graded negative and vice versa. I attribute this failure in analysis to the fact that the articles used for this analysis aren't very slang-focused, and are much more professional sounding per se. Essentially, I wasn't expecting great results from this experiment. Still, it is interesting to play around with regardless.
+
+
+### OVERALL TAKEAWAYS (300 Words) ###
+Part 1: The most positive sentence scored 1.28880446505765, the most negative scored -0.917639108272047, the median was 0.122500509173783, and the standard deviation was 0.211647397611058.
+
+Part 2: This is explained more above. I was unable to group by year. An overwhelming number of the articles are from 2026, so splitting by year is unreasonable. I opted to group by published date, where the median was shown to be 2026-07-03. The older group was median-inclusive, the newer group was not. For older: The most positive sentence scored 1.19804284842683, the most negative scored  -0.917639108272047, the median was 0.0750697220001773, and the standard deviation was 0.210589893585631. For newer: The most positive sentence scored 1.28880446505765, the most negative scored -0.798296615545399, the median was 0.159056941504209, and the standard deviation is 0.209926763395504.
+
+Part 3: The highlighting function is undoubtedly useful for our purposes. It transfers thick sentiment dataframes to human-friendly and readable formats. I noticed an issue with the sentiment analysis itself, where many neutral/positive sentences in the DTS database were marked negative. This is likely due to words such as deaf, hearing loss, etc being marked as negative when, in these sentences, they’re neutral. Thus, while the sentiment analysis is good and highlighting reveals great findings, it is important to analyze highlighted output yourself to confirm findings. 
+
+Part 4: Again, explained more in depth above. I used the lexicons data package for internet slang and found troubling results. The most positive sentence scored 0.503115294937453, the most negative scored -0.805112333176745, the median was 0, and the standard deviation was 0.10806202063818. Sentences that didn’t use slang were graded by the analysis, which shouldn’t be happening. There was no flow in how sentences were graded, many positive sentences would be marked negative and vice versa.
