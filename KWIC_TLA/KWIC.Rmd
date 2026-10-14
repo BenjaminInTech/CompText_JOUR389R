@@ -35,3 +35,10 @@ DTS_tokens <- tokens(DTS_corpus)
 DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester")), window = 50) |> as.data.frame()
 ```
 
+# Filtering DTS_KWIC down to just any variation of Artificial intelligence to see how much the term actually relates to the topic at hand. AI is very prevalent in DTS but is it relevant in this dataset?
+```{r}
+AI_KWIC <- DTS_KWIC |> 
+  filter(keyword == "ARTIFICIAL INTELLIGENCE")
+```
+
+
