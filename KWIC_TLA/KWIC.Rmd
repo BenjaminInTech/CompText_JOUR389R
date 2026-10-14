@@ -1,0 +1,37 @@
+---
+title: "KWIC"
+output: html_document
+date: "2026-10-14"
+---
+
+# Packages
+```{r}
+library(quanteda)
+library(readtext)
+library(tidyverse)
+```
+
+# Importing articles
+```{r}
+DTS <- read_csv("DTS_articles.csv") |> 
+  filter(!is.na(sentence))
+```
+
+# Creating corpus for KWIC
+```{r}
+DTS_corpus <- corpus(DTS, text_field = "sentence") # build a new corpus from the texts
+head(DTS_corpus)
+```
+
+# Tokenizing DTS corpus
+```{r}
+DTS_tokens <- tokens(DTS_corpus)
+```
+
+
+# KWIC
+# Phrases taken from own thoughts and previous bigrams done on the same csv file used here
+```{r}
+DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester")), window = 50) |> as.data.frame()
+```
+
