@@ -32,13 +32,18 @@ DTS_tokens <- tokens(DTS_corpus)
 # KWIC
 # Phrases taken from own thoughts and previous bigrams done on the same csv file used here
 ```{r}
-DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester")), window = 50) |> as.data.frame()
+DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence","AI", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester")), window = 50) |> as.data.frame()
 ```
 
 # Filtering DTS_KWIC down to just any variation of Artificial intelligence to see how much the term actually relates to the topic at hand. AI is very prevalent in DTS but is it relevant in this dataset?
 ```{r}
 AI_KWIC <- DTS_KWIC |> 
-  filter(keyword == "ARTIFICIAL INTELLIGENCE")
+  filter(grepl("Artificial Intelligence", keyword, ignore.case=TRUE) | grepl("AI", keyword, ignore.case=TRUE))
 ```
 
 
+###############
+### SUMMARY ###
+###############
+
+KWIC allows for easy access to relevant sentences through a small amount of code. My search filtered for keywords from my own thoughts as well as phrases/keywords that were shown in the bigrams assignment. The words/phrases used are: deaf, artificial intelligence, AI, deaf sentiment, sign, sign language, sentiment, (access*), accessibility solutions, (disabilit*), hearing, language barrier, RIT, and Rochester. Two points to be made about these: 1) I felt it proper to use phrases/words indicated from the bigrams assignment because the bigrams were done on the same dataset that the KWIC search was done on, therefore it is guaranteed that there is at least one instance of each word/phrase. 2) (access*) and (disabilit*) are parenthized to indicate that a wildcard was used in their search, access* allows for access, accessibility, accessible, and more to be found. disabilit* allows for disability and disabilities to be found. With that being said, 1925 sentences were returned. I noticed many rows having AI/Artificial Intelligence being the keyword, so I implemented code to filter the original KWIC to AI_KWIC, a dataframe with only AI/Artificial Intelligence as the keyword. I was taken aback to find that 1190 of 1925 observations were in the AI_KWIC, about 62%. I aimed to see the relevance of AI in this dataset to Deaf/Tech/Sentiment (DTS). I found that 90% of sentences in the AI_KWIC dataframe had relevance to venture capital but not DTS. This again reveals the overwarching limitation of the dataset, not KWIC. 
