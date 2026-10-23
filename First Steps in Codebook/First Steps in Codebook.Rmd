@@ -1,0 +1,14 @@
+---
+title: "First Steps in Codebook"
+author: "Tonatiuh Leung-Arellano"
+date: "2026-10-21"
+output: html_document
+---
+
+##########################
+### Research Questions ###
+##########################
+
+RQ1: 
+
+RQ2:

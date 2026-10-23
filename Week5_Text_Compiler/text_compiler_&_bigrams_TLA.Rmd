@@ -267,13 +267,70 @@ bigram_filtered
 
 # Saving dataframes to the folder
 ```{r}
-write_csv(bigram_filtered, "bigram_filtered.csv")
+# write_csv(bigram_filtered, "bigram_filtered.csv")
+write.csv(final_data, "no_dupes_DTS.csv")
 ```
 
 ```{r}
 deaf_bigram <- bigram_filtered |> 
   filter(grepl("deaf", word1, ignore.case = TRUE) | grepl("deaf", word2, ignore.case = TRUE))
 ```
+
+```{r}
+article_text <- articles_df |> 
+  group_by(filename) |> 
+  summarize(article_text = paste(sentence, collapse = "\n"), .groups = "drop")
+
+no_dupes_DTS_fulltext <- final_index |> 
+  left_join(article_text, by = "filename")
+
+write_csv(no_dupes_DTS_fulltext, "no_dupes_DTS_fulltext.csv")
+```
+
+```{r}
+dedupe_folder <- "./DTS_articles_no_dupes/"
+
+if (!dir.exists(dedupe_folder)) {
+  dir.create(dedupe_folder)
+}
+
+file.copy(from = final_index$filepath,
+          to   = file.path(dedupe_folder, final_index$filename),
+          overwrite = TRUE)
+```
+
+```{r}
+library(officer)
+
+docx_folder <- "./DTS_articles_no_dupes_docx/"
+
+if (!dir.exists(docx_folder)) {
+  dir.create(docx_folder)
+}
+
+write_article_docx <- function(filename, article_text) {
+  doc <- read_docx()
+  
+  # One Word paragraph per line of text
+  lines <- strsplit(article_text, "\n")[[1]]
+  lines <- lines[lines != ""]   # drop blank lines; remove this if you want to keep them
+  
+  for (line in lines) {
+    doc <- body_add_par(doc, line, style = "Normal")
+  }
+  
+  out_file <- file.path(docx_folder,
+                        paste0(tools::file_path_sans_ext(filename), ".docx"))
+  print(doc, target = out_file)
+}
+
+walk2(no_dupes_DTS_fulltext$filename,
+      no_dupes_DTS_fulltext$article_text,
+      write_article_docx)
+```
+
+
+
 
 
 ############
