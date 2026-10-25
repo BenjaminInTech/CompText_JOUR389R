@@ -1,0 +1,37 @@
+Research Data from GMR Institute of Technology Update Understanding of Health and Medicine (Sign Language Translation using Tensor Flow Model Zoo)
+ 
+Health & Medicine Daily
+April 28, 2023 Friday
+
+Copyright 2023 NewsRx, LLC All Rights Reserved
+
+
+Section: HEALTH AND MEDICINE
+Length: 398 words
+Body
+
+2023 APR 28 (NewsRx) -- By a News Reporter-Staff News Editor at Health & Medicine Daily -- Research findings on agriculture are discussed in a new report. According to news originating from the GMR Institute of Technology by NewsRx editors, the research stated, "Communication is very essential for all humans because it allows us to share or express our sentiments, emotions, and other thoughts." 
+ The news editors obtained a quote from the research from GMR Institute of Technology: "Humans communicate with one another via natural language (for example words), body language (hand gestures, facial motions, and so on) or writing etc. People who do not have any impairment can easily converse with each other in natural language. However people with impairments, such as deafness or blindness, suffer a communication hurdle. They converse with common people by adopting sign languages, which are difficult for normal people to grasp or understand. People with hearing and speech impairments often have a very difficult time conversing with other people without any translator or interpreter. As a matter of fact, this research is being undertaken that transforms sign language into text that is easily understood by the ordinary individual." 
+ According to the news editors, the research concluded: "This system will identify numbers, alphabets, and hand gestures as well. Our primary purpose is to remove the obstacles that exist between the deaf, dumb, and the rest of people." 
+ For more information on this research see: Sign Language Translation using Tensor Flow Model Zoo. Applied and Computational Engineering, 2023,2(1). The publisher for Applied and Computational Engineering is EWA Publishing. 
+ A free version of this journal article is available at https://doi.org/10.54254/2755-2721/2/20220585. 
+ Our news journalists report that additional information may be obtained by contacting Chunduru Anilkumar, Dept of Information Technology, GMR Institute of Technology, Rajam, Andhra Pradesh-532127. Additional authors for this research include Sathishkumar V E., Pallavi Pareek. 
+ Keywords for this news article include: GMR Institute of Technology, Health and Medicine, Manual Communication, Rehabilitation, Rehabilitation of Hearing Impaired, Sign Language, Therapy. 
+ Our reports deliver fact-based news of research and discoveries from around the world. Copyright 2023, NewsRx LLC 
+Classification
+
+Language: ENGLISH
+
+Document-Type: Expanded Reporting
+
+Publication-Type: Newsletter
+
+Subject: MEDICINE & HEALTH (92%); DEAFNESS (90%); EXPERIMENTATION & RESEARCH (90%); LANGUAGE & LANGUAGES (90%); RESEARCH REPORTS (90%); DISABLED PERSONS (89%); NATURAL LANGUAGE PROCESSING (89%); WRITERS (89%); JOURNALISM (78%); SPEECH & LANGUAGE DISORDERS (78%); SPEECH THERAPY (78%); BLINDNESS (73%); EMOTIONS (71%); Health and Medicine;Manual Communication;Rehabilitation;Rehabilitation of Hearing Impaired;Sign Language;Therapy (%)
+
+Industry: TRANSLATORS & INTERPRETERS (90%); WRITERS (89%); PUBLISHING (78%)
+
+Geographic: ANDHRA PRADESH, INDIA (79%); INDIA (52%)
+
+Load-Date: April 28, 2023
+
+End of Document

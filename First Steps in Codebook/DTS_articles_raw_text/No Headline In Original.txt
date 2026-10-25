@@ -1,0 +1,37 @@
+No Headline In Original
+Cape Argus (South Africa)/Argus Weekend (South Africa)
+October 10, 2024 Thursday
+
+Copyright 2024 Independent Newspapers Pty (Ltd) All Rights Reserved
+Section: NOWWR; Pg. 7
+Length: 495 words
+Body
+
+In Abuja, Nigeria, a project called “Deaf-in-Tech” is revolutionising the tech industry for those with hearing impairments. Founded by Dr Ayoola Arowolo, a consultant specialising in Diversity, Equity, and Inclusivity (DEI), the project is part of a larger initiative by Nigerian tech company Data-Lead Africa, aimed at bridging the skill and employment gap for persons with disabilities.
+The Deaf-in-Tech lab, where the project is based, is an environment of learning and empowerment. Here, deaf instructors like Victor Oricha are reshaping the narrative for the deaf community by teaching coding in Python, a high-level programming language.
+“I started studying Python, of course it was challenging at first, and using Python for data analysis especially when it comes to teaching the deaf community, I have come to see the passion and the interest it brings towards the deaf community when they learn and they feel proud about it. I am very excited when I’m coding in Python and this has made me to learn new things and I’m hoping to learn more,” he said.
+Students, such as Nafisat Alhassan Bawa, are also enthusiastic about their journey in the tech world. She hopes that the skills she is acquiring will help her secure a better job in the future.
+“My expectations when I graduate from here, is to be able to find a better job with my skill,” she says, adding a heartfelt: “I love you!”
+However, the project is not just about technical skills. It’s about fostering an atmosphere of inclusivity and diversity. Signs in the lab read “Inspiring diversity equity & inclusion in the workplace”, emphasising the project’s commitment to bridging the economic gap for persons with disabilities.
+Arowolo sees the project as a response to the lack of opportunities for the deaf community, particularly women who face additional challenges due to the intersection of gender and disability.
+“Gender intersecting with disability puts the deaf women way behind than even the deaf men, so if we don’t specifically do something for the deaf women, we will be increasing that economic gap. And so our focus was to get more women and we are glad that it worked in this quad. We have about 86% of this current quad as women as against what we’ve been having in previous quads,” Arowolo said.
+Another student, Buba Lawiza Isa, echoes this sentiment. She sees the program as a stepping stone to a brighter future: “My motivation actually to join this training was to learn and have a better understanding and improve my knowledge on tech and learn new things, to have a deeper knowledge about tech and how it can help me, help my life, my future and my aspirations.”
+Since its inception in 2022, the Deaf-in-Tech project has trained nearly 1 000 deaf individuals, providing them with the skills and knowledge to thrive in the tech industry.
+Going by UN reports, 25.5 million are Nigerians living with disabilities out of which 9.5 millions are deaf, who deserve decent living conditions. |   Reuters
+Classification
+
+Language: ENGLISH
+
+Publication-Type: Newspaper
+
+Journal Code: CA,CWPRO,CW,CZ
+
+Subject: DEAFNESS (91%); DIVERSITY & INCLUSION (90%); TECHNOLOGY (90%); ACCESSIBLE WORKPLACE (78%); REPORTS, REVIEWS & SECTIONS (78%); DISABLED PERSONS (76%); TEACHING & TEACHERS (76%); STUDENTS & STUDENT LIFE (75%)
+
+Industry: INFORMATION MANAGEMENT & TECHNOLOGY (78%); PROGRAMMING LANGUAGES & TOOLS (70%)
+
+Geographic: ABUJA, NIGERIA (59%); NIGERIA (92%); SOUTH AFRICA (92%); AFRICA (79%)
+
+Load-Date: October 9, 2024
+
+End of Document

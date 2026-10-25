@@ -1,0 +1,53 @@
+New glove hopes to bridge gap between hearing and deaf
+University Wire
+February 15, 2002
+
+Copyright 2002 The Daily Universe via U-Wire
+Length: 653 words
+Byline: By Jonathan Wardle, The Daily Universe
+Dateline: Provo, Utah
+Body
+
+In an effort to lower communication barriers between deaf and hearing persons, a Colorado high school student has created a glove that can translate American Sign Language into text on a handheld screen.
+Not all members of the deaf community, however, think the glove would be such a great improvement.
+The glove was created by Ryan Patterson, an 18-year-old senior at Central High School in Grand Junction, Colo.
+The glove has sensors attached to it that allow it to interpret what sign the hand is making and then translate the sign to text, which it displays on an LCD display. The glove can translate a sign in a matter of nanoseconds.
+Brigham Young U.
+The glove probably would be used most for fingerspelling, Ryan said. Fingerspelling is signing letters instead of signing words.
+The glove can be programmed by each user to recognize signs as words, not just letters, but that requires each user to create their own language, Patterson said.
+Common ASL signs could not be recognized by the glove, Patterson said, because they require hands, arms and more complex movements. The grammar of ASL also presents a problem in translating to text, he said.
+"I think that nothing ever will replace the human interpreter," Patterson said.
+But the glove could work well for short interchanges, like ordering something at a restaurant, he said.
+Patterson's invention earned him a first place award at the International Science Fair and has garnered media attention in The New York Times and USA Today and on the CBS Morning Show. This week he will present his glove at the National Institutes of Health in Maryland.
+Members of the deaf community, however, do not all share in the enthusiasm about Patterson's glove.
+"It wouldn't be that helpful," said Daniel Edwards, 23, a Brigham Young University student who has been deaf since birth.
+Edwards said it is not convenient to fingerspell all the time. He compared it to someone whose jaw gets cramped up after talking for a long period of time. A person who was fingerspelling a conversation, he said, could get a cramped hand.
+"In all honesty, I really doubt if this glove could serve any practical purpose," said Mike Kaika, director of media relations at Gallaudet University.
+Gallaudet University is a university for those who are deaf and hard of hearing.
+Kaika said a pad and pencil work best in the situations at which Patterson is targeting his glove.
+E-mail, Instant Messenger, pagers, TTY and Relay Service are effective means of communication between deaf and hearing individuals, Kaika said.
+"But I have to hand it to the guy who invented the glove," Kaika said. "Obviously he is very bright and innovative and perhaps someday he will invent something far more practical."
+Jack Rose, the coordinator of ASL for the department of evening classes at BYU, does see some potential in the glove.
+"This is an introduction to something that will be much bigger later on," Rose said.
+Rose said there are times when a deaf person wants to know that his sentiments are being expressed exactly.
+"There are times when the deaf person gets a little frustrated with the interpreter," he said.
+Patterson said opinions of the glove vary among members of the deaf community, but he has received positive feedback from deaf friends about his glove.
+"Almost every technology is looked at with a skeptical view," Patterson said.
+Currently Patterson is working on a speech dictation addition to his glove, so the glove would "speak" what was signed. He said he has no plans to create a speech recognizer, since there are already a number of good products available.
+Both Patterson and his mother see other potentials for the glove as well. His mother said she received a call from a grandmother whose grandson was born without tongue muscles. She said the grandmother wanted a glove so her grandson could communicate better.
+(C) 2002 The Daily Universe via U-WIRE
+Classification
+
+Language: ENGLISH
+
+Subject: DEAFNESS (92%); HIGH SCHOOLS (89%); SCHOOLS FOR THE DEAF & BLIND (89%); DISABLED PERSONS (73%); HEALTH DEPARTMENTS (63%); INSTANT MESSAGING (60%)
+
+Company: BRIGHAM YOUNG UNIVERSITY  (53%); BRIGHAM YOUNG UNIVERSITY  (53%)
+
+Industry: SIC8299 SCHOOLS & EDUCATIONAL SERVICES, NEC  (53%); TRANSLATORS & INTERPRETERS (90%); HIGH SCHOOLS (89%); SCHOOLS FOR THE DEAF & BLIND (89%); MONITORS & DISPLAYS (72%); RESTAURANTS (65%); HEALTH DEPARTMENTS (63%); INSTANT MESSAGING (60%)
+
+Geographic: PROVO, UT, USA (79%); GRAND JUNCTION, CO, USA (58%); COLORADO, USA (90%); MARYLAND, USA (79%); UTAH, USA (79%)
+
+Load-Date: February 15, 2002
+
+End of Document

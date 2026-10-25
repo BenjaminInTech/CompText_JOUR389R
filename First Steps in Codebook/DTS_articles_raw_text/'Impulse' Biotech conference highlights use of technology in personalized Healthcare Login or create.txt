@@ -1,0 +1,43 @@
+'Impulse' Biotech conference highlights use of technology in personalized Healthcare Login or create an account
+The Stanford Daily: Stanford University
+May 14, 2023 Sunday
+
+University Wire
+Copyright 2023 UWIRE via U-Wire All Rights Reserved
+Section: NEWS; Pg. 1
+Length: 828 words
+Byline: Shreya Komar
+Body
+
+On Saturday, the Stanford Students in Biodesign and Biopharma hosted "Impulse," among Stanford's premier biotechnology conferences, bringing together a community of students building products and technology for healthcare and biomedicine.
+The annual SSB conference featured talks with Google AI researcher Rory Sayres Ph.D. '07, founder of an AI-powered drug discovery startup Raphael Townshend Ph.D. '20, leading researchers in robotics, nanodevices and wearable devices and top biotech venture capitalists. 
+A central theme of the conference was the personalization of biotechnology. A conversation with professor of mechanical engineering Monroe Kennedy and professor of design David Jaffe featured extensive talks about the future of robotics in biology and potential advances in adaptable assistive technology.
+Both speakers shared a sentiment that AI is a great tool for assistive technology and that the future will hold several advances in that field, especially for those who are deaf and blind. However, Jaffe added that in order to truly make this new technology feasibly accessible to the general public, he believes it must be shown to be effective, well-understood by healthcare professionals, reimbursable by insurance and affordable.
+As part of his talk, Kennedy said that it's essential to carefully observe and be inspired by biological processes in order to create technology that solves biological problems. "A lot of really cool work comes out of biomimetics [the imitation of biological processes to solve biological problems]," Kennedy said, emphasizing the importance of creating technology that is directly informed by nature and biology.
+Bioengineering professor Mark Skylar-Scott deepened the conversation around personalized technology with his talk "Moving beyond the petri dish: Whole-organ biofabrication." Skylar-Scott is currently developing customizable 3-D bioprinting technology solutions to address single ventricle disease, a disease where patients lack a left ventricle in their heart.
+The goal is to replace tubes that currently get placed in the heart during surgical treatment for the condition with something "living and beating and able to supply energy to the blood," Skylar-Scott said. The lab currently investigates printing vascular tissue by feeding different types of stem cells into a 3D bioprinter, creating personalized vasculature.
+Professor Jin Hyung Lee from the neurological sciences department continued the conversation of adaptable and personalizable biotech solutions with her talk on creating a high-resolution neural network map of the brain, which is crucial for understanding localized brain function. Through the creation of a "digital brain," she says she seeks to understand the connectivity and function of large-scale neural networks in order to drive the development of new therapies for neurological diseases.
+"Brain disorders are the primary cause of disability worldwide and brain healthcare is a huge, increasing problem but there is nothing that is changing the curve of this big upsweep in cases," Lee said.
+"Problem definition is the most important but we are unable to do that with brain disorders," she said, pointing to diseases such as Alzheimer's where some treatments involve inserting electrodes inside the patient's brain and providing electrical impulses to try to restore brain function. But, according to Lee, this method is largely ineffective because for the most part "we are going in blindly and don't truly know how the brain works."
+Throughout her talk, Lee emphasized the importance of being able to localize problems to specific circuitry in the brain.
+"The ultimate goal of brain health care is to restore brain function and the main reason why we have failed in treatments is because we don't have a rigid, quantitative way of measuring brain function," Lee said. "MRIs show us the anatomical structure of the brain but cannot tell us anything about brain function." She believes that once we are able to define brain function, this would lead to tremendous advances in personalized healthcare for brain disorders instead of generic protocol-based treatment, unspecific to patients' needs.
+The day-long event also featured talks that touched upon several other advances in the biotech space like engineering RNA biology with AI, building prostheses along with a prototyping workshop.
+The variety of topics, from brain circuits to lessons to be learned from AI in healthcare, appealed to many attendees, like Vedant Chittake '26, a bioengineering major interested in oncological and cardiological research. "The conference was really insightful and I enjoyed gaining a lot of perspective into what different professors are doing in the field," Chittake said.
+Shreya Komar '26 is a writer for Arts & Life and the Reads Desk Editor. She adores sunrises, oil painting, and orange-flavored dark chocolate. If she's not writing or daydreaming, she's probably trying to adopt another plant.
+Classification
+
+Language: ENGLISH
+
+Publication-Type: Newspaper
+
+Subject: ARTIFICIAL INTELLIGENCE (90%); BIOMEDICINE (90%); BIOTECHNOLOGY & GENETIC SCIENCE (90%); BIOTECHNOLOGY INDUSTRY (90%); COLLEGE & UNIVERSITY PROFESSORS (90%); CONFERENCES & CONVENTIONS (90%); PRECISION HEALTH (90%); PROSTHETIC & ASSISTIVE DEVICES (90%); BIOLOGY (89%); BIOPRINTING (89%); BRAIN (89%); DISEASES & DISORDERS (89%); NEURAL NETWORKS (89%); NEUROSCIENCE (89%); NEUROLOGICAL DISORDERS & INJURIES (85%); ARTIFICIAL ORGANS (78%); BIOENGINEERING (78%); ENGINEERING (78%); MATH & SCIENCE EDUCATION (78%); MEDICAL TREATMENTS & PROCEDURES (77%); ROBOTICS (77%); MECHANICAL ENGINEERING (76%); HEALTH CARE PROFESSIONALS (72%); DRUG DESIGN & DISCOVERY (71%); NANOTECHNOLOGY (71%); VENTURE CAPITAL (71%); PROFESSIONAL WORKERS (70%); DEAFNESS (68%); SURGERY & TRANSPLANTATION (64%)
+
+Company:  GOOGLE LLC (90%)
+
+Industry: NAICS519290 WEB SEARCH PORTALS AND ALL OTHER INFORMATION SERVICES (90%); PHARMACEUTICALS & BIOTECHNOLOGY (93%); ARTIFICIAL INTELLIGENCE (90%); BIOMEDICINE (90%); BIOPHARMACEUTICALS (90%); BIOTECHNOLOGY INDUSTRY (90%); COLLEGE & UNIVERSITY PROFESSORS (90%); INDUSTRIAL AUTOMATION (90%); PHARMACEUTICALS INDUSTRY (90%); PROSTHETIC & ASSISTIVE DEVICES (90%); HEALTH CARE (89%); NEURAL NETWORKS (89%); ARTIFICIAL ORGANS (78%); ENGINEERING (78%); PHARMACEUTICALS PRODUCT DEVELOPMENT (78%); ROBOTICS (77%); MECHANICAL ENGINEERING (76%); HEALTH CARE PROFESSIONALS (72%); WEARABLE TECHNOLOGY (72%); DRUG DESIGN & DISCOVERY (71%); VENTURE CAPITAL (71%)
+
+Geographic: Stanford; CA
+
+Load-Date: May 15, 2023
+
+End of Document
