@@ -29,7 +29,7 @@ Communication Barriers Frame: The problems that cause communication dysfunction 
 
 Category: Assistive Technology
 
-1) Sign Language Technology: Any technological tool that recognizes, produces, translates, transmits, teaches, documents, or otherwise mediates a signed language. The sign language itself is core to the function, services such as closed-captioning do not count.
+1) Sign Language Technology: Any technological tool that recognizes, produces, translates and/or teaches a signed language. The sign language itself is core to the function, services such as closed-captioning do not count.
 
 
 Category: Deaf Sentiment
