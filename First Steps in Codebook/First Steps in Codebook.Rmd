@@ -52,6 +52,7 @@ Category: Communication Barriers
 ```{r}
 library(tidyverse)
 library(officer)
+library(janitor)
 ```
 
 # Reading DTS csv
