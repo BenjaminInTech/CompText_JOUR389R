@@ -1,0 +1,40 @@
+Six Innovative Student Research Projects Presented At The 7th International Conference On Arab Women In Computing
+Albawaba.com
+September 7, 2021 Tuesday
+
+Copyright 2021 Albawaba.com - Al Bawaba (Middle East) Ltd. Provided by Syndigate Media Inc. All Rights Reserved
+
+
+Length: 813 words
+Body
+
+Abu Dhabi University (ADU) participated in the 7th Annual International ArabWIC Conference which was held virtually by Sharjah University on 25 August 2021. The conference, which seeks to highlight the contributions of Arab women in computing and technology, saw six teams of undergraduate and postgraduate students from the Computer Science and Information Technology Department and the Electrical, Computer, and Biomedical Engineering Department at ADU's college of Engineering showcase their advanced Artificial Intelligence (AI) and distributed systems projects and research efforts.
+Participating teams from ADU, supervised by Professor Mourad Elhadef, Professor of Computer Science and Chair of Computer Science and IT Department at ADU, and Dr. Heba Ismail, Assistant Professor of Computer Science at ADU, showcased four research papers at the conference. The projects included 'Jusoor: A Wearable Communication Device for the Deaf-Blind' developed by Fatima Abdelmagid, Hamda Fasla and Huda Khafaji, 'UAE e-Learning Sentiment Analysis Framework' developed by Dana Wehbe, Hajer AlMaskari, Kholoud AlSeriedi and Ahmed AlHammadi, 'Covisstance Chatbot' developed by Farah Shaik and Arooba Khalid and 'A Server-less Academic Advisor Chatbot' developed by Rawan Elabyad, Nada Hussein and Salma Abdelhalim.
+Each project addresses critical real-life problems through the use and implementation of advanced AI models and cutting-edge technologies such as serverless computing.
+Jusoor is an AI-powered system assisting the deaf and blind in having natural communication with peers through instantaneous conversations. The UAE e-Learning Sentiment Analysis Framework provides real-time insights into the public's emotions and opinions concerning the e-learning process in the UAE through sentiment analysis of social media content to help empower decision-makers and education regulators. The Covisstance Chatbot is an advanced serverless chatbot system designed with natural language understanding capabilities to help patients locate hospitals with available beds and resources. Finally, the serverless academic advisor chatbot aims to alleviate the burden imposed on academic advisors post COVID-19 by allowing college students to virtually inquire about academic matters through a Microsoft Teams-powered virtual assistant.
+Master of Science in Electrical and Computer Engineering student Maha Yaghi also presented her research paper titled "Motion Tracked 3D Visualization System for Segmented ROI in Medical Imaging" during the conference. Her research, which was supervised by Prof. Mohammed Ghazal, Professor and Chair of Electrical, Computer, and Biomedical Engineering Department, and Dr. Huma Zia, Assistant Professor of Computer Engineering, proposes an analysis system for visualizing the output of 3D segmented abnormalities within associated computer diagnoses. Meanwhile, Master of Science in Electrical and Computer Engineering student Tasnim Basmaji presented her research paper titled "Towards Urgent and Rapid Deployment of Contactless IoT Elevator Control Panel during Pandemics". Her study, supervised by Prof. Mohammed Ghazal, Dr. Anas Altarabsheh, Associate Professor of Electrical Engineering and Dr. Huma Zia, proposes a contactless elevator control system to decrease the risk of coronavirus transmission whilst using an elevator.
+Dr. Hamdi Sheibani, the Dean of the College of Engineering, commented on the participation, "As a university that inspires creativity and encourages innovation, our students have produced 'out-of-the-box' solutions while employing advanced technologies. In the College of Engineering, we aim to foster a community of learners who are devoted to solving some of the most complex engineering challenges. During our participation at the International ArabWIC Conference, I have observed our students' exceptional work and dedication to learn, grow and thrive in a world of technology. I am proud to say that our students were involved with such passion and enthusiasm and have developed some of the most innovative and pioneering projects the College of Engineering has ever witnessed."
+The Chair of the Conference, Dr. Manar Abu Talib, Associate Professor of Computer Science at the University of Sharjah, the host of the conference, said: "We are excited to see the level of sophistication and quality of the research papers this year. Conferences such as ArabWIC pave the way to inspire a new generation of women leaders in computing."
+ArabWIC is a non-profit organization that aims to support, inspire and amplify the efforts of Arab women in computing. The ArabWIC conference is a key platform for the organization, aiming to energize the community, help facilitate connections and engage participants with international research on computing and technology.
+For more information about ADU, please visit https://www.adu.ac.ae/home
+Classification
+
+Language: ENGLISH
+
+Publication-Type: Web Publication
+
+Journal Code: 176
+
+Subject: COMPUTER SCIENCE (91%); ARTIFICIAL INTELLIGENCE (90%); COLLEGE & UNIVERSITY PROFESSORS (90%); CONFERENCES & CONVENTIONS (90%); ENGINEERING (90%); RESEARCH & DEVELOPMENT (90%); WOMEN IN STEM (90%); ACADEMIC COUNSELING (89%); BIOENGINEERING (89%); BIOMEDICINE (89%); COLLEGE STUDENTS (89%); COMPUTER ENGINEERING (89%); ELECTRICAL ENGINEERING (89%); STUDENTS & STUDENT LIFE (89%); COLLEGES & UNIVERSITIES (78%); EMERGING TECHNOLOGY (77%); DEAFNESS (73%); EDUCATION REGULATION & POLICY (73%); GRADUATE & PROFESSIONAL SCHOOLS (73%); NATURAL LANGUAGE PROCESSING (72%); VIRUSES (72%); PUBLIC HEALTH (69%); EMOTIONS (68%); COVID CORONAVIRUS (67%); COVID-19 CORONAVIRUS (67%); EPIDEMICS (67%); INFECTIOUS DISEASE (67%); SOCIAL MEDIA ANALYTICS (67%); DIAGNOSTIC IMAGING (61%); CORONAVIRUSES (60%); SOCIAL MEDIA (50%)
+
+Company:  MICROSOFT CORP (52%)
+
+Ticker: MSFT (NASDAQ) (52%)
+
+Industry: NAICS511210 SOFTWARE PUBLISHERS (52%); SIC7372 PREPACKAGED SOFTWARE (52%); COMPUTER SCIENCE (91%); ARTIFICIAL INTELLIGENCE (90%); COLLEGE & UNIVERSITY PROFESSORS (90%); ENGINEERING (90%); BIOMEDICINE (89%); COLLEGE STUDENTS (89%); COMPUTER ENGINEERING (89%); ELECTRICAL ENGINEERING (89%); COLLEGES & UNIVERSITIES (78%); COMPUTING & INFORMATION TECHNOLOGY (77%); INFORMATION MANAGEMENT (76%); GRADUATE & PROFESSIONAL SCHOOLS (73%); WEARABLE TECHNOLOGY (72%); TELECOMMUNICATIONS EQUIPMENT (68%); HOSPITALS (67%); SOCIAL MEDIA ANALYTICS (67%); DIAGNOSTIC IMAGING (61%); SOCIAL MEDIA (50%)
+
+Geographic: ABU DHABI, UNITED ARAB EMIRATES (79%); UNITED ARAB EMIRATES (90%); MIDDLE EAST (58%)
+
+Load-Date: September 7, 2021
+
+End of Document

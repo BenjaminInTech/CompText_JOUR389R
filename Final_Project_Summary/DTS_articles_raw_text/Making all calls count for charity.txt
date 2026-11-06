@@ -1,0 +1,60 @@
+Making all calls count for charity
+The Australian
+February 25, 2003, Tuesday Preprints Edition
+
+Copyright 2003 Nationwide News Pty Limited
+Section: FEATURES-COLUMN- AUSTRALIAN IT, COMPUTERS, IT BUSINESS; Pg. C03
+Length: 753 words
+Byline: Tessa Denton
+Body
+
+CASE STUDY ROYAL INSTITUTE OF DEAF AND BLIND CHILDREN
+A $1 million multiple dialling system for the Rainbow Lottery is expected to recoup costs within two years, Tessa Denton reports
+REVENUE generated through Rainbow Lottery telemarketing is life-blood for the Royal Institute of Deaf and Blind Children, and the reason behind a $1 million investment in automatic-dialling technology.
+ The public generally dislikes receiving fund-raising calls at home, but an undaunted RIDBC says it is confident it can double its pledge rate of 2.5 in 50 calls in the first year.
+ Even more important to the RIDBC was upgrading technology for its loyal staff, who used to sell lottery tickets from hand-dialled numbers selected from printed lists.
+ The new predictive dialling system, Conversations, dials multiple telephone numbers, filters out calls to unanswered phones, answering machines, fax machines and engaged, disconnected or faulty numbers, and connects operators only to "live" calls.
+MATP
+The RIDBC has run its Rainbow Lottery three times a year since 1987 to help raise the $20 million needed annually for its educational and assistance programs for around 600 deaf and blind children. These include early intervention, pre-school, primary and secondary school services.
+ This year the RIDBC is increasing its target budget to $23 million, with government funding of only $5 million.
+ Allan Harrington, RIDBC general manager, says programs rely on the $3 million raised annually through the lotteries, and the money could not be replaced in any other way.
+ "When we ring at dinner-time, people do get annoyed but I know if we didn't do it some kids would be worse off," Mr Harrington says.
+ Building-up regular contributors was important to the RIDBC, so staff were always "nice to everybody".
+ Harrington is well-aware US householders are fed-up with the frequency of hard-sell marketing phone calls, and the US Federal Trade Commission is launching a new "do-not-call" national register in March. The idea is based on well-established state registers.
+ It is reportedly so popular that it is expected to halt unsolicited calls to 60 per cent of US households, although charities are not prevented from making calls. But telemarketers and outsourced call centre operators, worried it could sound the death knell of the telephone sales industry, are challenging the national register in the US courts.
+ There is a similar do-not-mail/do-not-call list in Australia, maintained by the Australian Direct Marketing Association, which has a relatively low 70,000 names on it. But that could grow as privacy awareness gains ground.
+ Before buying the new system, Harrington says he did weigh up the future usefulness of telemarketing to the RIDBC.
+ He calculated the technology costs would be outstripped in the first two years by the extra revenue generated. He also felt sure the organisation's worthwhile cause would not provoke consumer resistance in Australia.
+ Fausto Marasco, chief executive of Premier Technologies, provider of RIDBC's dialling system, says US diallers had gone too far.
+ They had "overdialled" numbers, and hung up when the caller answered.
+ "Australians would regard that as bad manners, and over-dialling can be controlled to bring it down to zero," he says.
+ Automatic diallers also used prepared lists of numbers, updated by operators.
+ "Organisations, and charities in particular, don't want to harass people, they know they have to be tuned to public sentiment," he says.
+ "Putting people off giving money is the last thing they want."
+ Marasco says flagfall charges made telephone communication more expensive in Australia than it was in the US.
+ This meant making high numbers of unsuccessful calls was not desirable here.
+ Collection agencies, non-profit organisations, financial institutions, promotional marketers and market researchers were the biggest users of automatic-dialling technology, he says.
+ "Telephone communication works for tasks where human interaction is needed. Nothing replaces people talking to each other directly," he says.
+THE PROBLEM
+The Royal Institute for Deaf and Blind Children needed a predictive dialling system in its Rainbow Lottery fundraising call centre to improve its costs-to-revenue ratio.
+THE PROCESS
+Replacing an old-style telephone centre with a 20-seat call centre system, including provision of staff-training, without disruption to operations, in mid-2002.
+THE SOLUTION
+The Conversations predictive dialling system supplied by divine inc, and installed by Premier Technologies.
+Classification
+
+Language: ENGLISH
+
+Subject: CHILDREN, ADOLESCENTS & TEENS (90%); DEAFNESS (90%); SCHOOLS FOR THE DEAF & BLIND (90%); DO NOT CALL LISTS (89%); ASSOCIATIONS & ORGANIZATIONS (78%); BUSINESS & PROFESSIONAL ASSOCIATIONS (78%); FUNDRAISING (78%); PRIMARY & SECONDARY EDUCATION (78%); TICKET SALES (78%); HOUSEHOLD NUMBERS (74%); BUSINESS PROCESS OUTSOURCING (73%); CALL CENTERS (73%); GOVERNMENT DEPARTMENTS & AUTHORITIES (65%); COMMERCE DEPARTMENTS (61%); SECONDARY SCHOOLS (53%)
+
+Company: DIRECT MARKETING ASSOCIATION INC  (51%)
+
+Organization: ROYAL INSTITUTE OF DEAF&BLIND CHILDREN  (94%)
+
+Industry: LOTTERIES (90%); SCHOOLS FOR THE DEAF & BLIND (90%); TELEMARKETING (90%); DO NOT CALL LISTS (89%); PRIMARY & SECONDARY EDUCATION (78%); TICKET SALES (78%); DIRECT MARKETING (77%); CALL CENTERS (73%); SECONDARY SCHOOLS (53%)
+
+Geographic: AUSTRALIA (92%); UNITED STATES (92%)
+
+Load-Date: February 24, 2003
+
+End of Document

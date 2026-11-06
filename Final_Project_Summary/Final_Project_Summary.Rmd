@@ -1,0 +1,65 @@
+---
+title: "Final_Proj_Summary"
+author: "Tonatiuh Leung-Arellano"
+date: "2026-11-06"
+output: html_document
+---
+
+
+############
+### CODE ###
+############
+
+# Libraries
+```{r}
+library(tidyverse)
+library(janitor)
+library(dplyr)
+library(tidytext)
+```
+# Importing (possibly) necessary dataframes
+
+#### UPDATE THIS ONCE YOU FINISH USING EVERYTHING YOU NEED
+
+```{r}
+DTS_fulltext <- read_csv("DTS_articles_fulltext.csv")
+DTS_articles <- read_csv("DTS_articles.csv")
+DTS_coded <- read_csv("DTS_coded.csv")
+```
+
+###############
+### Bigrams ###
+###############
+
+```{r}
+bigrams <- DTS_fulltext |> 
+  unnest_tokens(bigram, sentence, token="ngrams", n=2)
+
+bigrams
+```
+
+```{r}
+data(stop_words)
+
+bigrams |> 
+  filter(!is.na(bigram)) |> 
+  separate(bigram, c("word1", "word2"), sep = " ") |> 
+  filter(!word1 %in% stop_words$word) |> 
+  filter(!word2 %in% stop_words$word) |> 
+  count(word1, word2)
+```
+
+```{r}
+bigram_filtered <- bigrams |> 
+  filter(!is.na(bigram)) |> 
+  separate(bigram, c("word1", "word2"), sep = " ") |> 
+  filter(!word1 %in% stop_words$word) |> 
+  filter(!word2 %in% stop_words$word) |> 
+  count(word1, word2, sort = TRUE)
+```
+
+```{r}
+deaf_bigram <- bigram_filtered |> 
+  filter(grepl("deaf", word1, ignore.case = TRUE) | grepl("deaf", word2, ignore.case = TRUE))
+```
+

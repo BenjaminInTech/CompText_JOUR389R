@@ -1,0 +1,37 @@
+Apple bringing new accessibility features like eye-tracking, vocal shortcuts and more to iPhones, iPads
+India Today Online
+May 16, 2024 Thursday 10:26 AM GMT
+
+Copyright 2024 India Today All Rights Reserved
+
+
+Length: 440 words
+Body
+
+Apple unveiled a host of forthcoming accessibility features designed to make iPads and iPhones more user-friendly for individuals with diverse needs. These innovations include Eye Tracking, Music Haptics, Vocal Shortcuts, Vehicle Motion Cues, and significant updates to visionOS. Tim Cook, Apple's CEO, emphasized the company's unwavering commitment to inclusive design, which has been a cornerstone of Apple's ethos for nearly four decades. 
+Sarah Herrlinger, Apple's senior director of Global Accessibility Policy and Initiatives, echoed Cook's sentiment, expressing enthusiasm about the profound impact these advancements will have on users worldwide. Eye Tracking stands out as a standout feature, leveraging artificial intelligence to empower users with physical disabilities to navigate their iPad or iPhone using only their eyes. This cutting-edge technology utilizes the device's front-facing camera to swiftly calibrate, enabling seamless control without the need for additional hardware. Another groundbreaking feature, Music Haptics, introduces a novel way for individuals who are deaf or hard of hearing to engage with music on their iPhones. By leveraging the Taptic Engine, users can feel vibrations that synchronize with the audio of the music, enhancing their listening experience in an unprecedented manner. Vocal Shortcuts offer users the ability to execute tasks by creating custom sounds that Siri can recognize, providing a hands-free alternative for completing actions. Additionally, Listen for Atypical Speech enhances speech recognition for users with diverse speech patterns or conditions such as cerebral palsy or ALS. Addressing the challenge of motion sickness while using iPhones and iPads in moving vehicles, Vehicle Motion Cues present a groundbreaking solution. By displaying animated dots on the screen edges, this feature helps alleviate sensory conflicts between visual and physical motion cues, significantly enhancing user comfort. Updates to CarPlay include Voice Control, Color Filters, and Sound Recognition, bolstering accessibility for users while driving. Meanwhile, visionOS enhancements, such as Live Captions and other features, will provide invaluable support for users with vision or hearing impairments. Apple's commitment to accessibility extends beyond software updates, with features like Virtual Trackpad and Switch Control catering to users with physical disabilities. These groundbreaking innovations underscore Apple's dedication to creating technology that is accessible to everyone, regardless of their abilities, solidifying their position as a pioneer in inclusive design.
+Link to Image
+
+Graphic
+
+ 
+Apple bringing new accessibility features like eye-tracking, vocal shortcuts and more to iPhones, iPads
+Classification
+
+Language: ENGLISH
+
+Publication-Type: Web Publication
+
+Subject: DISABLED PERSONS (90%); HAPTIC TECHNOLOGY (90%); SMARTPHONES (90%); DEAFNESS (89%); TECHNOLOGY (89%); VOICE RECOGNITION (89%); EMERGING TECHNOLOGY (78%); INTELLIGENT PERSONAL ASSISTANTS (78%); PROSTHETIC & ASSISTIVE DEVICES (78%); VISION IMPAIRMENTS (78%); LANGUAGE & LANGUAGES (70%); ARTIFICIAL INTELLIGENCE (69%); CEREBRAL PALSY (69%)
+
+Company:  APPLE INC (98%)
+
+Ticker: AAPL (NASDAQ) (98%)
+
+Industry: NAICS423430 COMPUTER & COMPUTER PERIPHERAL EQUIPMENT & SOFTWARE MERCHANT WHOLESALERS (98%); NAICS334413 SEMICONDUCTOR & RELATED DEVICE MANUFACTURING (98%); NAICS334112 COMPUTER STORAGE DEVICE MANUFACTURING (98%); NAICS334111 ELECTRONIC COMPUTER MANUFACTURING (98%); SIC5045 COMPUTERS & COMPUTER PERIPHERAL EQUIPMENT & SOFTWARE (98%); SIC3674 SEMICONDUCTORS & RELATED DEVICES (98%); SIC3577 COMPUTER PERIPHERAL EQUIPMENT, NEC (98%); SIC3572 COMPUTER STORAGE DEVICES (98%); SIC3571 ELECTRONIC COMPUTERS (98%); HAPTIC TECHNOLOGY (90%); MOBILE & CELLULAR TELEPHONES (90%); SMARTPHONES (90%); TABLET COMPUTERS (90%); TELEPHONIC EQUIPMENT (90%); PATTERN RECOGNITION (89%); VOICE RECOGNITION (89%); COMPUTER POINTING DEVICES (78%); HANDS FREE DEVICES (78%); INTELLIGENT PERSONAL ASSISTANTS (78%); MOBILE MEDIA (78%); PROSTHETIC & ASSISTIVE DEVICES (78%); ARTIFICIAL INTELLIGENCE (69%); CAMERAS (68%)
+
+Person: TIM COOK (74%); STEVEN JOBS (59%)
+
+Load-Date: May 16, 2024
+
+End of Document
