@@ -16,6 +16,10 @@ library(tidyverse)
 library(janitor)
 library(dplyr)
 library(tidytext)
+library(sentimentr)
+library(magrittr)
+library(quanteda)
+library(readtext)
 ```
 # Importing (possibly) necessary dataframes
 
@@ -63,3 +67,63 @@ deaf_bigram <- bigram_filtered |>
   filter(grepl("deaf", word1, ignore.case = TRUE) | grepl("deaf", word2, ignore.case = TRUE))
 ```
 
+
+##########################
+### Sentiment Analysis ###
+##########################
+
+```{r}
+DTS_analyze <- DTS_fulltext |> 
+  filter(!is.na(sentence)) |> 
+  select(sentence, id) |> 
+  mutate(id = row_number())
+```
+
+```{r}
+DTS_sentiment <- DTS_analyze %>%
+  get_sentences() %>%
+  sentiment_by(by = c("id"))
+```
+
+# Describing DTS sentiments in context
+```{r}
+
+print(paste0("From this exercise, the most positive sentence in the DTS database was scored at ", max(DTS_sentiment$ave_sentiment), " while the most negative was scored at ", min(DTS_sentiment$ave_sentiment),". For context, the median value was ", median(DTS_sentiment$ave_sentiment), " and the standard deviation was ", sd(DTS_sentiment$ave_sentiment), "."))
+        
+```
+
+
+############
+### KWIC ###
+############
+
+# Getting what we need for tokenization
+```{r}
+DTS_to_token <- DTS_fulltext |> 
+  filter(!is.na(sentence))
+```
+
+
+# Creating corpus for KWIC
+```{r}
+DTS_corpus <- corpus(DTS_to_token, text_field = "sentence") # build a new corpus from the texts
+head(DTS_corpus)
+```
+
+# Tokenizing DTS corpus
+```{r}
+DTS_tokens <- tokens(DTS_corpus)
+```
+
+
+# KWIC
+# Phrases taken from own thoughts and above bigram
+```{r}
+DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence","AI", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester", "language development", "rylo", "disabled", "communication")), window = 50) |> as.data.frame()
+```
+
+# Filtering DTS_KWIC down to just any variation of Artificial intelligence to see how much the term actually relates to the topic at hand. AI is very prevalent in DTS but is it relevant in this dataset?
+```{r}
+AI_KWIC <- DTS_KWIC |> 
+  filter(grepl("Artificial Intelligence", keyword, ignore.case=TRUE) | grepl("AI", keyword, ignore.case=TRUE))
+```
