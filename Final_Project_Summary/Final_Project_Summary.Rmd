@@ -127,3 +127,45 @@ DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence","AI", "d
 AI_KWIC <- DTS_KWIC |> 
   filter(grepl("Artificial Intelligence", keyword, ignore.case=TRUE) | grepl("AI", keyword, ignore.case=TRUE))
 ```
+
+######################
+### Bigrams Part 2 ###
+######################
+
+# Running bigrams on a slightly modified version of DTS_KWIC. My thinking is that if I run bigrams on DTS_KWIC then I'll obtain a bigrams that's much more focused on DTS instead of a bigrams that's filled with nonsense since some of the news articles talk about a bunch of topics and a small section related to DTS, leaving me with a lot of content that doesn't pertain to DTS
+
+# Modifying DTS_KWIC
+
+# Get all unique sentence ids from DTS_KWIC
+```{r}
+KWIC_IDs <- DTS_KWIC |> 
+  select(docname) |> 
+  mutate(id = as.numeric(sub("text", "", docname))) |> 
+  select(id) |> 
+  distinct(id, .keep_all = TRUE)
+```
+
+# Getting all sentences in DTS_analyze that have an ID that shows up in KWIC_IDs
+```{r}
+KWIC_to_bigram <- DTS_analyze |> 
+  filter(id %in% KWIC_IDs$id)
+```
+
+# Now that we have only the sentences which show up in KWIC and ensure that the whole sentence is there. We can now do bigrams on just the KWIC sentences.
+```{r}
+KWIC_bigram <- KWIC_to_bigram |> 
+  unnest_tokens(bigram, sentence, token="ngrams", n=2)
+```
+
+```{r}
+KWIC_bigram_filtered <- KWIC_bigram |> 
+  filter(!is.na(bigram)) |> 
+  separate(bigram, c("word1", "word2"), sep = " ") |> 
+  filter(!word1 %in% stop_words$word) |> 
+  filter(!word2 %in% stop_words$word) |> 
+  count(word1, word2, sort = TRUE)
+```
+
+
+
+
