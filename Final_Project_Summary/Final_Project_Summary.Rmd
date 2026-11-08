@@ -5,6 +5,113 @@ date: "2026-11-06"
 output: html_document
 ---
 
+####################
+### INTRODUCTION ###
+####################
+
+The purpose of this project is to conduct a computational text analysis of news articles discussing assistive technology and their relationship with Deaf and hard-of-hearing individuals. The field of technology continues to innovate new methods of communication and accessibility. It is important to see how these developments are represented in news media. Technologies such as automated captioning, sign-language recognition, and artificial intelligence have incredible potential to break down communication barriers. But their effectiveness and accessibility may vary depending on the needs and experiences of users.
+
+This project examines how news articles portray these technologies, focusing on the language used to describe their benefits, limitations, and overall effectiveness. It investigates whether news coverage emphasizes the importance of technological advancements in assistive technology while acknowledging the why behind equitable solutions.
+
+The dataset comprises 110 unique news articles collected from NexisUni.The publication dates range from October 13th, 1983 to September 10th, 2026. The search terms used to find the articles in NexisUni are as follows: “Deaf AND Sentiment AND Technology” and “Deaf /50 sentiment /50 tech*. 
+
+Source data: https://github.com/BenjaminInTech/CompText_JOUR389R/blob/main/Final_Project_Summary/DTS_articles_fulltext.csv
+
+# ----------------------------------------------------------------------------------------- #
+
+#########################
+### LITERATURE REVIEW ###
+#########################
+
+Themes across articles indicate that assistive technology is frequently presented as a way to improve accessibility and independence. But the existence of assistive technology itself does not equal equitable solutions for the Deaf and hard-of-hearing community. Their needs, preferences, and lived experiences may not be considered/represented properly.
+
+“We Aren’t Fully Digitally Included”, published by Daily News (2023), discusses limitations of assistive technology, specifically availability and opportunities in underserved communities. Financial limitations and inadequate digital literacy are unfortunately common amongst those with disabilities, including Deaf/hard-of-hearing people. This demonstrates that technological advancements do not automatically mean improved accessibility. These technologies need to be accessible to all to be truly assistive.
+
+“Rylo Raises $85M to Scale AI Communication Platform” by Ventureburn (2026) highlights a growing interest and investment in assistive technology, especially with AI. Rylo is a company developing communication tools for the Deaf community. This includes captioning, sign-language translation, and more. These developments are portrayed positively, emphasizing potential for access, independence, and everyday communication. It doesn’t focus on firsthand accounts of user experience, only speaking on capabilities of the tools themselves. 
+
+“Understanding Deafness: Not Everyone Wants to Be ‘Fixed’” by The Atlantic (2013) highlights how perceptions of assistive technology may reinforce the assumption that Deafness is a condition to be “fixed”. A topic not spoken about often is showcased: Deaf culture/identity and American Sign Language need to be prioritized alongside technological innovation. They shouldn’t be seen as a problem, they should give purpose to create equitable solutions. Thus, assistive technology should account for personal autonomy, identity, and communication preferences.
+
+# ----------------------------------------------------------------------------------------- #
+
+###############
+### METHODS ###
+###############
+
+Computational text analysis is used to examine news articles regarding assistive technology for Deaf and hard-of-hearing people. The analysis is conducted in R using a dataset of 110 news articles, where each row is a sentence from their respective article. Multiple computational methods are used and described below.
+
+Bigram analysis is used to identify recurring pairs of words with the goal of generalizing recurring themes and associations within the articles. This is done in two parts, where initially a bigram analysis is done on the entire dataset, then a specialized bigram analysis is done on results from a later KWIC analysis explained below.
+
+Sentiment analysis is used through the sentimentr package in R. This estimates emotional tone in the articles by scoring each sentence. These scores are then summarized to identify the overall distribution of positive and negative language throughout the articles. This is also done in two parts similar to bigram analysis.
+
+Keyword-in-Context analysis is then used to examine how specific terms appear within their textual contexts. This helps determine how concepts such as accessibility, sign language, artificial intelligence, and communication barriers are discussed. The keywords used are as follows: "deaf", "artificial intelligence", "AI", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester", "language development", "rylo", "disabled", "communication". These phrases come as a result of personal experience as well as the first bigram conducted. 
+
+The results of the two sentiment analyses are then compared using the ggplot2 package. This allows for a visualization of overall sentence sentiment scores from the articles overall compared to the scores of sentences resulting from the KWIC analysis. 
+
+Bigram and sentiment analysis are done in two parts because the dataset contains articles that cover multiple subjects, leading to bloat of irrelevant topics. Keyword-in-Context analysis isolates sentences of relevance, so part 2 of bigram and sentiment analysis focuses on the sentences returned by Keyword-in-Context analysis. Part 1 is important to understand how the articles seem overall and how that compares to how articles speak on assistive technology.
+
+# ----------------------------------------------------------------------------------------- #
+
+################
+### CODEBOOK ###
+################
+
+# Codebook wasn't counted in the word count
+
+Assistive Technology Frame: What technological tools exist to support d/Deaf/Hard-of-hearing people and what do they do
+
+Deaf Sentiment Frame: How do d/Deaf/Hard-of-hearing people perceive, interact, and feel about assistive technology
+
+Communication Barriers Frame: A spectrum of any obstacle that prevents or limits quality and efficiency of communication in terms of tone, information, and purpose between d/Deaf/hard-of-hearing people and others
+
+
+Category: Assistive Technology
+
+1) Sign Language Technology: Any technological tool that recognizes, produces, translates and/or teaches a signed language. The sign language itself is core to the function, services such as closed-captioning do not count.
+
+
+Category: Deaf Sentiment
+
+1) Deaf: "Capital D" Deaf refers to individuals with limited or no hearing capacity who identify as part of the Deaf community and engage with Deaf culture, history, and signed language. 
+
+2) deaf: "Lowercase d" deaf refers to individuals with limited or no hearing capacity without the implication of a connection to Deaf culture.  People who are deaf may or may not use signed languages and might not identify with the broader Deaf community. This term is often used when focusing on the physical aspect of hearing capacity rather than the cultural aspect.
+
+3) Hard-of-hearing: A partial loss of hearing generally ranked from mildly to moderately diminished hearing capacity, but not total loss. Total loss is known as d/Deaf.
+
+
+Category: Communication Barriers
+
+1) Language Deprivation: Limited or absent access to a fully accessible first language during critical developmental periods, resulting in lasting gaps in language acquisition, literacy, or communication access.
+
+
+# ----------------------------------------------------------------------------------------- #
+
+##########################
+### RESEARCH QUESTIONS ###
+##########################
+
+RQ1: How does news media portray sentiments of assistive technologies built for Deaf and Hard-of-hearing people?
+
+RQ2: How has the effectiveness of assistive technologies in overcoming recurring communication barriers been presented in news articles?
+
+# ----------------------------------------------------------------------------------------- #
+
+################
+### FINDINGS ###
+################
+
+Bigram analysis is an incredible tool to educate the direction of further analyses. In the context of this project, results from bigram analysis highlighted artificial intelligence, Rochester Institute of Technology, assistive technology, and more as relevant topics. Those results informed what keywords to use in the Keyword-in-Context analysis. Keyword-in-Context analysis allows for examination of how relevant terms are used within each article. This helps understand what articles discuss the effectiveness of assistive technologies and/or acknowledge limitations, communication barriers, and more. Sentiment analysis combined with ggplot2 indicates that sentences related to the research questions are generally more positive than all sentences. We can also see that 83.6% of the articles are from 2021-2026, indicating an majorly increased interest in assistive technology in recent years.
+
+# ----------------------------------------------------------------------------------------- #
+
+##################
+### CONCLUSION ###
+##################
+
+This project examines how news media portrays perspectives on and the effectiveness of assistive technology for Deaf and hard-of-hearing people. This is done through bigram analysis, sentiment analysis, Keyword-in-Context searches, and data visualization. 
+
+Ultimately, the purpose is to better understand how technological innovations are presented as solutions to communication barriers and if news coverage properly acknowledges Deaf and hard-of-hearing needs and experiences. The existence of assistive technology does not guarantee equitable solutions. This project aims to provide insights into the broader discussion of technological innovation related to assistive technology.
+
+# ----------------------------------------------------------------------------------------- #
 
 ############
 ### CODE ###
@@ -20,6 +127,8 @@ library(sentimentr)
 library(magrittr)
 library(quanteda)
 library(readtext)
+library(ggplot2)
+library(tidyr)
 ```
 # Importing (possibly) necessary dataframes
 
@@ -119,7 +228,7 @@ DTS_tokens <- tokens(DTS_corpus)
 # KWIC
 # Phrases taken from own thoughts and above bigram
 ```{r}
-DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence","AI", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester", "language development", "rylo", "disabled", "communication")), window = 50) |> as.data.frame()
+DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence", "AI", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester", "language development", "rylo", "disabled", "communication")), window = 50) |> as.data.frame()
 ```
 
 # Filtering DTS_KWIC down to just any variation of Artificial intelligence to see how much the term actually relates to the topic at hand. AI is very prevalent in DTS but is it relevant in this dataset?
@@ -147,13 +256,13 @@ KWIC_IDs <- DTS_KWIC |>
 
 # Getting all sentences in DTS_analyze that have an ID that shows up in KWIC_IDs
 ```{r}
-KWIC_to_bigram <- DTS_analyze |> 
+KWIC_to_analyze <- DTS_analyze |> 
   filter(id %in% KWIC_IDs$id)
 ```
 
 # Now that we have only the sentences which show up in KWIC and ensure that the whole sentence is there. We can now do bigrams on just the KWIC sentences.
 ```{r}
-KWIC_bigram <- KWIC_to_bigram |> 
+KWIC_bigram <- KWIC_to_analyze |> 
   unnest_tokens(bigram, sentence, token="ngrams", n=2)
 ```
 
@@ -166,6 +275,79 @@ KWIC_bigram_filtered <- KWIC_bigram |>
   count(word1, word2, sort = TRUE)
 ```
 
+########################
+### SENTIMENT PART 2 ###
+########################
+
+# Doing a sentiment analysis on DTS_KWIC in the same manner I did the bigrams to hone results in on DTS-related pieces
+
+```{r}
+DTS_KWIC_analyze <- KWIC_to_analyze |> 
+  filter(!is.na(sentence)) |> 
+  select(sentence, id) |> 
+  mutate(id = row_number())
+```
+
+```{r}
+DTS_KWIC_sentiment <- DTS_KWIC_analyze %>%
+  get_sentences() %>%
+  sentiment_by(by = c("id"))
+```
+
+# Describing DTS_KWIC sentiments in context
+```{r}
+
+print(paste0("From this exercise, the most positive sentence in the DTS database was scored at ", max(DTS_KWIC_sentiment$ave_sentiment), " while the most negative was scored at ", min(DTS_KWIC_sentiment$ave_sentiment),". For context, the median value was ", median(DTS_KWIC_sentiment$ave_sentiment), " and the standard deviation was ", sd(DTS_KWIC_sentiment$ave_sentiment), "."))
+        
+```
 
 
+##############
+### GGPLOT ###
+##############
+
+# Comparing the sentiment results from the overall KWIC to the DTS focused KWIC
+
+```{r}
+# Build a summary of each statistic for both datasets
+# Claude helped build this ggplot, idea was mine though.
+summary_stats <- bind_rows(
+  DTS_sentiment %>%
+    summarise(
+      Max    = max(ave_sentiment, na.rm = TRUE),
+      Min    = min(ave_sentiment, na.rm = TRUE),
+      Median = median(ave_sentiment, na.rm = TRUE),
+      SD     = sd(ave_sentiment, na.rm = TRUE)
+    ) %>% mutate(dataset = "All DTS"),
+  DTS_KWIC_sentiment %>%
+    summarise(
+      Max    = max(ave_sentiment, na.rm = TRUE),
+      Min    = min(ave_sentiment, na.rm = TRUE),
+      Median = median(ave_sentiment, na.rm = TRUE),
+      SD     = sd(ave_sentiment, na.rm = TRUE)
+    ) %>% mutate(dataset = "DTS KWIC")
+) %>%
+  pivot_longer(-dataset, names_to = "statistic", values_to = "value") %>%
+  mutate(statistic = factor(statistic, levels = c("Max", "Median", "Min", "SD")))
+
+# Grouped bar chart
+ggplot(summary_stats, aes(x = statistic, y = value, fill = dataset)) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.7) +
+  geom_text(
+    aes(label = round(value, 2),
+        vjust = ifelse(value >= 0, -0.5, 1.5)),
+    position = position_dodge(width = 0.8),
+    size = 3.5
+  ) +
+  geom_hline(yintercept = 0, color = "gray40") +
+  scale_y_continuous(expand = expansion(mult = c(0.15, 0.15))) +
+  labs(
+    title = "Sentiment Summary Statistics: All DTS vs. KWIC Subset",
+    x = NULL,
+    y = "Average sentiment score",
+    fill = NULL
+  ) +
+  theme_minimal() +
+  theme(legend.position = "top")
+```
 
