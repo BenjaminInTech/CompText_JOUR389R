@@ -419,10 +419,34 @@ articles_df <- articles_df %>%
   select(filename, sentence=value) %>%
   inner_join(final_index)
 
-
-write_csv(articles_df, "DTS_articles_fulltext.csv")
-
 ```
+
+```{r}
+split_long_text <- function(text, max_chars = 25000) {
+  if (is.na(text) || nchar(text) <= max_chars) return(text)
+  sents <- str_split(text, "(?<=[.!?])\\s+")[[1]]
+  chunk_id <- cumsum(nchar(sents) + 1) %/% max_chars
+  unname(tapply(sents, chunk_id, paste, collapse = " "))
+}
+
+articles_df <- articles_df |>
+  mutate(sentence = map(sentence, split_long_text)) |>
+  unnest(sentence)
+
+max(nchar(articles_df$sentence))   # should now be well under 32767
+```
+```{r}
+articles_df <- articles_df |>
+  mutate(sentence = as.character(sentence))
+```
+
+
+
+```{r}
+write_csv(articles_df, "DTS_articles_fulltext_Recent.csv")
+```
+
+
 
 # Asked claude to help with the regex for detecting the right strings based on the codebook
 ```{r}

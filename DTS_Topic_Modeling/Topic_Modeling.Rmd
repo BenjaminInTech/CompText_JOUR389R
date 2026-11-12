@@ -1,0 +1,354 @@
+---
+title: "Topic_Modeling"
+author: "Tonatiuh Leung-Arellano"
+date: "2026-11-11"
+output: html_document
+---
+
+### Loading Libraries
+
+```{r include=FALSE}
+# set options
+options(stringsAsFactors = F)         # no automatic data transformation
+options("scipen" = 100, "digits" = 4) # suppress math annotation
+# load packages
+here::here()
+library(tidyverse)
+library(tidytext)
+library(rio)
+library(readtext)
+#topic modeling
+library(quanteda)
+library(tm)
+library(topicmodels)
+library(lda)
+library(ldatuning)
+# from tutorial packages
+library(DT)
+library(knitr) 
+library(kableExtra) 
+library(reshape2)
+library(ggplot2)
+library(wordcloud)
+library(pals)
+library(SnowballC)
+library(flextable)
+
+library(dplyr)
+
+```
+
+### Importing Data
+### LB stands for Less_Bloat
+
+```{r}
+DTS_fulltext <- read_csv("DTS_articles_fulltext.csv")
+
+DTS_fulltext_LB <- DTS_fulltext %>%
+  filter(!grepl("M13|WNDRCO", filename))
+```
+
+### Validating data
+```{r}
+DTS_LB_id <- DTS_fulltext_LB |> 
+  distinct(id) |> 
+  filter(!is.na(id))
+```
+
+
+### Converting published_date to year
+
+```{r}
+DTS_fulltext <- DTS_fulltext |> 
+  mutate(year = year(published_date))
+
+DTS_fulltext_LB <- DTS_fulltext_LB |> 
+  mutate(year = year(published_date))
+```
+
+### Process into corpus object
+
+```{r}
+textdata <- DTS_fulltext %>% 
+  select(filename, sentence, year) %>% 
+  as.data.frame() %>% 
+  rename(doc_id = filename, text= sentence)
+
+textdata_LB <- DTS_fulltext_LB %>% 
+  select(filename, sentence, year) %>% 
+  as.data.frame() %>% 
+  rename(doc_id = filename, text= sentence)
+```
+
+### Remove stopwords, clean corpus
+
+```{r}
+# 1. Define standard stopwords
+english_stopwords <- stopwords("en")
+
+# 2. Build corpus
+corpus <- Corpus(DataframeSource(textdata))
+corpus_LB <- Corpus(DataframeSource(textdata_LB))
+
+# 3. Clean in correct sequence
+processedCorpus <- tm_map(corpus, content_transformer(tolower))
+processedCorpus <- tm_map(processedCorpus, removePunctuation, preserve_intra_word_dashes = TRUE)
+processedCorpus <- tm_map(processedCorpus, removeNumbers)
+
+processedCorpus_LB <- tm_map(corpus_LB, content_transformer(tolower))
+processedCorpus_LB <- tm_map(processedCorpus_LB, removePunctuation, preserve_intra_word_dashes = TRUE)
+processedCorpus_LB <- tm_map(processedCorpus_LB, removeNumbers)
+
+# Remove stopwords BEFORE stemming
+processedCorpus <- tm_map(processedCorpus, removeWords, english_stopwords)
+
+processedCorpus_LB <- tm_map(processedCorpus_LB, removeWords, english_stopwords)
+
+# Stem documents after removing stopwords
+processedCorpus <- tm_map(processedCorpus, stemDocument, language = "en")
+processedCorpus <- tm_map(processedCorpus, stripWhitespace)
+
+processedCorpus_LB <- tm_map(processedCorpus_LB, stemDocument, language = "en")
+processedCorpus_LB <- tm_map(processedCorpus_LB, stripWhitespace)
+```
+
+```{r tm3a}
+#DTM: rows correspond to the documents in the corpus. Columns correspond to the terms in the documents. Cells correspond to the weights of the terms. (Girder)
+# compute document term matrix with terms >= minimumFrequency
+minimumFrequency <- 5
+DTM <- DocumentTermMatrix(processedCorpus, control = list(bounds = list(global = c(minimumFrequency, Inf))))
+# have a look at the number of documents and terms in the matrix
+dim(DTM)
+# due to vocabulary pruning, we have empty rows in our DTM
+# LDA does not like this. So we remove those docs from the
+# DTM and the metadata
+sel_idx <- slam::row_sums(DTM) > 0
+DTM <- DTM[sel_idx, ]
+textdata <- textdata[sel_idx, ]
+#5 term minimum[1] 1387 3019
+#5 term minimum[1] 308597 10339
+
+minimumFrequency <- 5
+DTM_LB <- DocumentTermMatrix(processedCorpus_LB, control = list(bounds = list(global = c(minimumFrequency, Inf))))
+
+dim(DTM_LB)
+
+sel_idx <- slam::row_sums(DTM_LB) > 0
+DTM_LB <- DTM_LB[sel_idx, ]
+textdata_LB <- textdata_LB[sel_idx, ]
+
+```
+
+## Topic proportions over time {.unnumbered}
+
+### We examine topics in the data over time by aggregating mean topic proportions per decade. These aggregated topic proportions can then be visualized, e.g. as a bar plot.
+
+```{r}
+# append decade information for aggregation
+textdata$decade <- paste0(substr(textdata$year, 0, 3), "0")
+
+textdata_LB$decade <- paste0(substr(textdata_LB$year, 0, 3), "0")
+```
+
+### Articles per decade
+
+```{r}
+#install.packages("formattable")
+articles_decades <- textdata %>% 
+  distinct(doc_id, .keep_all=TRUE) %>% 
+  count(decade) %>% 
+  mutate(pct_total= (n/sum(n))) %>% 
+  mutate(pct_total= formattable::percent(pct_total)) %>% 
+  # mutate(pct_total = round(pct_total, 1)) %>% 
+  arrange(desc(decade))
+
+articles_decades_LB <- textdata_LB %>% 
+  distinct(doc_id, .keep_all=TRUE) %>% 
+  count(decade) %>% 
+  mutate(pct_total= (n/sum(n))) %>% 
+  mutate(pct_total= formattable::percent(pct_total)) %>% 
+  # mutate(pct_total = round(pct_total, 1)) %>% 
+  arrange(desc(decade))
+
+library(kableExtra)
+articles_decades %>%
+  kbl(caption = "DTS Articles by Decade (n=9,589, 10/23/2024)", font_size = 30) %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "5em") %>% 
+  column_spec(3, width = "5em", background = "yellow") 
+
+articles_decades_LB %>%
+  kbl(caption = "DTS Articles without M13 and WNDRCO by Decade (n=9,589, 10/23/2024)", font_size = 30) %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "5em") %>% 
+  column_spec(3, width = "5em", background = "yellow") 
+
+
+
+#Fact check 110 articles
+#sum(articles_decades$n)
+```
+
+```{r tm12}
+# number of topics
+# K <- 20
+K <- 6
+# set random number generator seed
+set.seed(9161)
+#Latent Dirichlet Allocation, LDA
+topicModel2 <- LDA(DTM, K, method="Gibbs", control=list(iter = 500, verbose = 25, alpha = 0.2))
+tmResult <- posterior(topicModel2)
+theta <- tmResult$topics
+beta <- tmResult$terms
+topicNames <- apply(terms(topicModel2, 10), 2, paste, collapse = " ")  # reset topicnames
+
+topicModel2_LB <- LDA(DTM_LB, K, method="Gibbs", control=list(iter = 500, verbose = 25, alpha = 0.2))
+tmResult_LB <- posterior(topicModel2_LB)
+theta_LB <- tmResult_LB$topics
+beta_LB <- tmResult_LB$terms
+topicNames_LB <- apply(terms(topicModel2_LB, 10), 2, paste, collapse = " ")  # reset topicnames_LB
+```
+
+### Mean topic proportions per decade
+
+```{r}
+# Step 1: Check dimensions
+n_theta <- nrow(theta)
+n_theta_LB <- nrow(theta_LB)
+n_textdata <- length(textdata$decade)
+n_textdata_LB <- length(textdata_LB$decade)
+
+cat("Number of rows in theta: ", n_theta, "\n")
+cat("Number of rows in theta_LB: ", n_theta_LB, "\n")
+cat("Number of documents in textdata: ", n_textdata, "\n")
+cat("Number of documents in textdata_LB: ", n_textdata_LB, "\n")
+
+# Check if textdata contains all the documents in theta
+common_ids <- intersect(rownames(theta), textdata$doc_id) # Assuming textdata has a 'doc_id' column
+
+common_ids_LB <- intersect(rownames(theta_LB), textdata_LB$doc_id)
+
+# Filter textdata to include only the documents present in theta
+textdata_filtered <- textdata[textdata$doc_id %in% common_ids, ]
+textdata_filtered_LB <- textdata_LB[textdata_LB$doc_id %in% common_ids_LB, ]
+
+# Check dimensions after filtering
+n_textdata_filtered <- nrow(textdata_filtered)
+cat("Number of documents in filtered textdata: ", n_textdata_filtered, "\n")
+
+n_textdata_filtered_LB <- nrow(textdata_filtered_LB)
+cat("Number of documents in filtered textdata_LB: ", n_textdata_filtered_LB, "\n")
+
+cat("Num in n_theta: ", n_theta, "\n")
+cat("Num in n_theta: ", n_theta_LB, "\n")
+
+# Ensure the lengths match now
+if (n_theta != n_textdata_filtered) {
+  stop("The number of rows in 'theta' still does not match the length of 'textdata_filtered$decade'.")
+}
+
+if (n_theta_LB != n_textdata_filtered_LB) {
+  stop("The number of rows in 'theta_LB' still does not match the length of 'textdata_filtered_LB$decade'.")
+}
+
+# Align rownames of theta with filtered textdata
+theta_aligned <- theta[rownames(theta) %in% textdata_filtered$doc_id, ]
+theta_aligned_LB <- theta_LB[rownames(theta_LB) %in% textdata_filtered_LB$doc_id, ]
+
+# Optional: Verify the order of documents
+if (!all(rownames(theta_aligned) == textdata_filtered$doc_id)) {
+  # If the order doesn't match, reorder one to match the other
+  textdata_filtered <- textdata_filtered[match(rownames(theta_aligned), textdata_filtered$doc_id), ]
+}
+
+if (!all(rownames(theta_aligned_LB) == textdata_filtered_LB$doc_id)) {
+  # If the order doesn't match, reorder one to match the other
+  textdata_filtered_LB <- textdata_filtered_LB[match(rownames(theta_aligned_LB), textdata_filtered_LB$doc_id), ]
+}
+
+# Ensure they are now aligned and can be combined
+if (!all(rownames(theta_aligned) == textdata_filtered$doc_id)) {
+  stop("The document IDs still do not match. Please check the data alignment.")
+}
+
+if (!all(rownames(theta_aligned_LB) == textdata_filtered_LB$doc_id)) {
+  stop("The document IDs still do not match. Please check the data alignment.")
+}
+
+# Step 2: Combine data
+topic_data <- data.frame(theta_aligned, decade = textdata_filtered$decade)
+topic_data_LB <- data.frame(theta_aligned_LB, decade = textdata_filtered_LB$decade)
+
+# Step 3: Aggregate data
+topic_proportion_per_decade <- aggregate(. ~ decade, data = topic_data, FUN = mean)
+topic_proportion_per_decade_LB <- aggregate(. ~ decade, data = topic_data_LB, FUN = mean)
+
+
+# get mean topic proportions per decade
+# topic_proportion_per_decade <- aggregate(theta, by = list(decade = textdata$decade), mean)
+# set topic names to aggregated columns
+colnames(topic_proportion_per_decade)[2:(K+1)] <- topicNames
+colnames(topic_proportion_per_decade_LB)[2:(K+1)] <- topicNames_LB
+# reshape data frame
+vizDataFrame <- melt(topic_proportion_per_decade, id.vars = "decade")
+vizDataFrame_LB <- melt(topic_proportion_per_decade_LB, id.vars = "decade")
+
+# #filter out 1960 - one article
+vizDataFrame <- vizDataFrame %>% 
+   filter(!decade==1960)
+```
+
+#Examine topic names
+
+```{r}
+#enframe(): Converts a named list into a dataframe.
+topics <- enframe(topicNames, name = "number", value = "text") %>% 
+  unnest(cols = c(text)) 
+
+topics_LB <- enframe(topicNames_LB, name = "number", value = "text") %>% 
+  unnest(cols = c(text)) 
+  
+topics
+topics_LB
+```
+
+### Review the topics and determine a 1-2 word label after reading the source documents.
+
+```{r}
+
+#Topic 1	lightspe market fund class million share june firm compani startup
+
+theta2 <- as.data.frame(theta)
+
+topic1 <- theta2 %>% 
+  rownames_to_column(var = "file") |> # putting the rownames into a new column called file
+  mutate(file = str_remove(file, "^X"),  # Remove leading 'X'
+         line = str_extract(file, "(?<=\\.txt)\\.\\d+")) |>   # Extract number after .txt
+  mutate(file = str_remove(file, "\\.\\d+$")) |> 
+  rename(topic1 = '1') |> # looking at first topic: lightspe market fund class million share june firm compani startup
+  top_n(20, topic1) |> 
+  arrange(desc(topic1)) |>  
+  select(file, line, topic1) 
+
+
+```
+
+
+```{r}
+
+#add categories
+
+vizDataFrame <- vizDataFrame %>% 
+  mutate(category = case_when(
+    str_detect(variable, "negro murder white lynch man kill year assault charg two") ~ "negro_crime",
+    str_detect(variable, "law will crime peopl lynch great one excit punish time") ~ "critizing_lynching",
+    str_detect(variable, "night last counti jail lynch citi near taken morn negro") ~ "negro_lynching",
+    str_detect(variable, "state court new will governor juri order judg trial call") ~ "legal",
+    str_detect(variable, "mob lynch negro men jail sheriff prison hang made taken") ~ "lynch_mob",
+    str_detect(variable, "bodi fire shot hous one hang tree found street rope") ~ "attack_body",
+    ))
+
+
+```
