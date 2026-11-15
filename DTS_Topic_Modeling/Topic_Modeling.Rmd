@@ -315,40 +315,108 @@ topics_LB
 ```
 
 ### Review the topics and determine a 1-2 word label after reading the source documents.
+### After reviewing topics vs topics_LB. I've determined that topics_LB is slightly more aligned with the purpose of this text analysis project so I'll be focusing on topics_LB from here on.
+
 
 ```{r}
 
-#Topic 1	lightspe market fund class million share june firm compani startup
-
-theta2 <- as.data.frame(theta)
+theta2 <- as.data.frame(theta_LB)
 
 topic1 <- theta2 %>% 
   rownames_to_column(var = "file") |> # putting the rownames into a new column called file
   mutate(file = str_remove(file, "^X"),  # Remove leading 'X'
          line = str_extract(file, "(?<=\\.txt)\\.\\d+")) |>   # Extract number after .txt
   mutate(file = str_remove(file, "\\.\\d+$")) |> 
-  rename(topic1 = '1') |> # looking at first topic: lightspe market fund class million share june firm compani startup
+  rename(topic1 = '1') |> # looking at first topic: languag access deaf communic disabl word said user use servic
   top_n(20, topic1) |> 
   arrange(desc(topic1)) |>  
   select(file, line, topic1) 
 
+topic2 <- theta2 %>% 
+  rownames_to_column(var = "file") |> # putting the rownames into a new column called file
+  mutate(file = str_remove(file, "^X"),  # Remove leading 'X'
+         line = str_extract(file, "(?<=\\.txt)\\.\\d+")) |>   # Extract number after .txt
+  mutate(file = str_remove(file, "\\.\\d+$")) |> 
+  rename(topic2 = '2') |> # looking at second topic: technolog market intellig artifici compani news busi comput financi servic
+  top_n(20, topic2) |> 
+  arrange(desc(topic2)) |>  
+  select(file, line, topic2) 
+
+topic3 <- theta2 %>% 
+  rownames_to_column(var = "file") |> # putting the rownames into a new column called file
+  mutate(file = str_remove(file, "^X"),  # Remove leading 'X'
+         line = str_extract(file, "(?<=\\.txt)\\.\\d+")) |>   # Extract number after .txt
+  mutate(file = str_remove(file, "\\.\\d+$")) |> 
+  rename(topic3 = '3') |> # looking at third topic: deaf hear implant technolog cochlear peopl languag medic new devic
+  top_n(20, topic3) |> 
+  arrange(desc(topic3)) |>  
+  select(file, line, topic3) 
+
+topic4 <- theta2 %>% 
+  rownames_to_column(var = "file") |> # putting the rownames into a new column called file
+  mutate(file = str_remove(file, "^X"),  # Remove leading 'X'
+         line = str_extract(file, "(?<=\\.txt)\\.\\d+")) |>   # Extract number after .txt
+  mutate(file = str_remove(file, "\\.\\d+$")) |> 
+  rename(topic4 = '4') |> # looking at fourth topic: state manag unit end usa director copyright document classif language english
+  top_n(20, topic4) |> 
+  arrange(desc(topic4)) |>  
+  select(file, line, topic4)
+
+topic5 <- theta2 %>% 
+  rownames_to_column(var = "file") |> # putting the rownames into a new column called file
+  mutate(file = str_remove(file, "^X"),  # Remove leading 'X'
+         line = str_extract(file, "(?<=\\.txt)\\.\\d+")) |>   # Extract number after .txt
+  mutate(file = str_remove(file, "\\.\\d+$")) |> 
+  rename(topic5 = '5') |> # looking at fifth topic: said one will peopl like say year also can get
+  top_n(20, topic5) |> 
+  arrange(desc(topic5)) |>  
+  select(file, line, topic5)
+
+topic6 <- theta2 %>% 
+  rownames_to_column(var = "file") |> # putting the rownames into a new column called file
+  mutate(file = str_remove(file, "^X"),  # Remove leading 'X'
+         line = str_extract(file, "(?<=\\.txt)\\.\\d+")) |>   # Extract number after .txt
+  mutate(file = str_remove(file, "\\.\\d+$")) |> 
+  rename(topic6 = '6') |> # looking at sixth topic: compani million develop includ invest fund round crore technolog oper
+  top_n(20, topic6) |> 
+  arrange(desc(topic6)) |>  
+  select(file, line, topic6) 
+
 
 ```
-
 
 ```{r}
 
 #add categories
 
-vizDataFrame <- vizDataFrame %>% 
+vizDataFrame_LB <- vizDataFrame_LB %>% 
   mutate(category = case_when(
-    str_detect(variable, "negro murder white lynch man kill year assault charg two") ~ "negro_crime",
-    str_detect(variable, "law will crime peopl lynch great one excit punish time") ~ "critizing_lynching",
-    str_detect(variable, "night last counti jail lynch citi near taken morn negro") ~ "negro_lynching",
-    str_detect(variable, "state court new will governor juri order judg trial call") ~ "legal",
-    str_detect(variable, "mob lynch negro men jail sheriff prison hang made taken") ~ "lynch_mob",
-    str_detect(variable, "bodi fire shot hous one hang tree found street rope") ~ "attack_body",
+    str_detect(variable, "languag access deaf communic disabl word said user use servic") ~ "Communication Accessibility",
+    str_detect(variable, "technolog market intellig artifici compani news busi comput financi servic") ~ "AI Trends",
+    str_detect(variable, "deaf hear implant technolog cochlear peopl languag medic new devic") ~ "Medical Technology",
+    str_detect(variable, "state manag unit end usa director copyright document classif language english") ~ "AI Sentiments",
+    str_detect(variable, "said one will peopl like say year also can get") ~ "Deaf Culture",
+    str_detect(variable, "compani million develop includ invest fund round crore technolog oper") ~ "Venture Funding",
     ))
 
 
 ```
+
+########################
+### 250 WORD SUMMARY ###
+########################
+
+Relevant Topics:
+- Communication Accessibility: These articles discuss technologies, services, and initiatives focused on reducing communication barriers that Deaf and hard-of-hearing individuals face in society. 
+- AI Trends: These articles discuss advancements in the technology and AI industries. Accessibility-related AI is included in these advancements, which is why this is marked as relevant.
+- Medical Technology: These articles discuss the idea that Deaf people need to be “fixed” and medical approaches to that idea.
+- AI Sentiments: Attitudes towards advancements in AI and debates about AI adoption
+- Deaf Culture:  These articles can be used to analyze the portrayal of deaf-related experiences and cultural narratives that show up in news coverage.
+
+Non-relevant Topics:
+- Venture Funding: These articles discuss investments, company financing, startup growth, etc. Not relevant because my research isn’t focused on the financial side of things.
+
+
+Benefits: Topic modeling can reveal underlying themes that might not be immediately apparent when reading a piece of literature. It also provides a good way to connect articles by identifying shared themes. I also feel that doing topic modeling before reading an article gives a bit of context as to what you’re about to read, so you have a bit of understanding going into the article. 
+
+Shortfalls: While this didn’t show up in this assignment, I worry that this process doesn’t understand nuance. Like when we did sentiment analysis, some sentences were marked negative but they were actually positive. I wonder if this modeling would run into a similar issue in a different context. The biggest shortfall, in my opinion, is the subjectivity of interpretation. One may have a different interpretation of the keywords than another, leading to different labeling.
