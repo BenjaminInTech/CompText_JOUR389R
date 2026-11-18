@@ -43,6 +43,8 @@ DTS_sentiment <- DTS_analyze %>%
   sentiment_by(by = c("id"))
 ```
 
+
+### Sentiments (example)
 ```{r}
 #| echo: false
 DTS_sentiment
