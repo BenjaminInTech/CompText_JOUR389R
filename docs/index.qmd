@@ -150,10 +150,10 @@ From a **Datawrapper Map**
 
 ## Embedding video
 
-### AI at Maryland | Shaping the Future of AI
+### Silver Springs by Fleetwood Mac performed live in 1997
 
 ::: {#first_steps}
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PKyU06BYtmo?si=b4Sxhk9JAafpxUcL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eDwi-8n054s?si=tMhXV07e3LgJUJ5D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 
 ::: {#second_steps}
