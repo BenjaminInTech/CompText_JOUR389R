@@ -14,6 +14,38 @@ format:
 library(tidyverse)
 library(sentimentr)
 library(tidyr)
+library(magrittr)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS <- read_csv(file="DTS_articles.csv") |> 
+    mutate(id = row_number())
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_analyze <- DTS |> 
+  filter(!is.na(sentence)) |> 
+  select(sentence, id)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_sentiment <- DTS_analyze %>%
+  get_sentences() %>%
+  sentiment_by(by = c("id"))
+```
+
+```{r}
+#| echo: false
+DTS_sentiment
 ```
 
 
@@ -153,13 +185,17 @@ From a **Datawrapper Map**
 ### Silver Springs by Fleetwood Mac performed live in 1997
 
 ::: {#first_steps}
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eDwi-8n054s?si=tMhXV07e3LgJUJ5D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eDwi-8n054s?si=tMhXV07e3LgJUJ5D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
 :::
 
 ::: {#second_steps}
 ### Somebody That I Used To Know performed live
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Vs2g3m-VvSc?si=ehVNYYHME03hOI3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Vs2g3m-VvSc?si=ehVNYYHME03hOI3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
 :::
 
 **Now replace these two videos with something you selected.**
