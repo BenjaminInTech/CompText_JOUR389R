@@ -31,17 +31,17 @@ We can **bold** or *italic* text.
 
 We can create bulleted lists.
 
--   bullet one
--   bullet two
--   bullet three
+- bullet one
+- bullet two
+- bullet three
 
 ## Code blocks
 
 We can also add special code inside of code blocks -- the gray sections where we write code -- that control how they render in our html document. These output options let us do things like:
 
--   Show or hide the code when we render our html document (echo: true or false)
--   Prevent the code from actually running when we render our html document (eval: true or false)
--   Hide warnings from outputing when we render our html document (warning: true or false)
+- Show or hide the code when we render our html document (echo: true or false)
+- Prevent the code from actually running when we render our html document (eval: true or false)
+- Hide warnings from outputing when we render our html document (warning: true or false)
 
 There's a [full guide here](https://quarto.org/docs/computations/execution-options.html#output-options).
 
@@ -81,41 +81,41 @@ income_vacancy %>%
 
 ## Set up for hosting
 
--   Create a new folder in your repository called "docs" (if one isn't there already)
--   Rename this document as "index.qmd"
--   Move "index.qmd" into the "docs" folder
+- Create a new folder in your repository called "docs" (if one isn't there already)
+- Rename this document as "index.qmd"
+- Move "index.qmd" into the "docs" folder
 
 ## Render this document as an html page
 
--   Make sure this document is named "index.qmd" and is in the "docs" folder
--   Click Render button. It will create an html version of this page, called "index.html"
--   Use GitHub Desktop to push your files to your your github repository on the web.
--   Access the URL from your Github repository.
+- Make sure this document is named "index.qmd" and is in the "docs" folder
+- Click Render button. It will create an html version of this page, called "index.html"
+- Use GitHub Desktop to push your files to your your github repository on the web.
+- Access the URL from your Github repository.
 
 ## Host html on GitHub
 
--   Go to your github repository on the web, such as https://github.com/djnf-data-2026/casey-mann
--   Click on Settings on the top right.
--   Scroll down to the Pages section of Settings.
--   Change the Branch to /docs and click save.
+- Go to your github repository on the web, such as https://github.com/djnf-data-2026/casey-mann
+- Click on Settings on the top right.
+- Scroll down to the Pages section of Settings.
+- Change the Branch to /docs and click save.
 
 #### To see your file hosted:
 
--   Back to your GitHub repo on the web: such as https://github.com/djnf-data-2026/casey-mann
--   Click on Settings, then Pages
--   Under GitHub Pages, you should see "Your site is live at https://djnf-data-2026.github.io/casey-mann/"
--   Click that URL
--   If it works, email it to robwells\@umd.edu
+- Back to your GitHub repo on the web: such as https://github.com/djnf-data-2026/casey-mann
+- Click on Settings, then Pages
+- Under GitHub Pages, you should see "Your site is live at https://djnf-data-2026.github.io/casey-mann/"
+- Click that URL
+- If it works, email it to robwells\@umd.edu
 
 ## REVEL IN YOUR NERD POWERS
 
 # Part 2: Embedding Images
 
--   create a folder in your repository's main branch, call it images
+- create a folder in your repository's main branch, call it images
 
--   find any .jpeg, .jpg or .png file and insert it into that folder.
+- find any .jpeg, .jpg or .png file and insert it into that folder.
 
--   In a QMD file, display the image as follows:
+- In a QMD file, display the image as follows:
 
 \#![Underscores Grammy Nominated Album Cover](images/U_album_cover_by_Underscores.jpg)
 
@@ -143,7 +143,7 @@ From a **Datawrapper Map**
 ### Silver Springs by Fleetwood Mac performed live in 1997
 
 ::: {#first_steps}
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=eDwi-8n054s&list=RDeDwi-8n054s&start_radio=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eDwi-8n054s?si=eJjx51AcFVToFG0n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </iframe>
 :::
@@ -151,7 +151,7 @@ From a **Datawrapper Map**
 ::: {#second_steps}
 ### Somebody That I Used To Know performed live
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Vs2g3m-VvSc&list=RDVs2g3m-VvSc&start_radio=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Vs2g3m-VvSc?si=ehVNYYHME03hOI3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </iframe>
 :::
