@@ -133,7 +133,7 @@ income_vacancy %>%
 
 A more advanced technique controlling the width and height
 
-\#![Read the Screen](images/Evangelion.jpg){width="50%"}
+\#![Read the Screen](images/Evangelion.png){width="75%"}
 
 ### Embedding code
 
