@@ -119,11 +119,11 @@ income_vacancy %>%
 
 \#![Underscores Grammy Nominated Album Cover](images/U_album_cover_by_Underscores.jpg)
 
-\#![CHATTER FOR YOUR chart](images/xl-refresher-grid_SHEETS.png)
+\#![CHATTER FOR YOUR chart](images/Evangelion.png)
 
 A more advanced technique controlling the width and height
 
-\#![Read the Screen](images/xl-refresher-SHEETS_screen.png){width="100%"}
+\#![Read the Screen](images/Evangelion.png){width="50%"}
 
 ### Embedding code
 
