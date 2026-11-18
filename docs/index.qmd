@@ -117,7 +117,7 @@ income_vacancy %>%
 
 -   In a QMD file, display the image as follows:
 
-\#![Underscores Grammy Nominated Album Cover](images/U_album_cover_by_Underscores.png)
+\#![Underscores Grammy Nominated Album Cover](./images/U_album_cover_by_Underscores.jpg)
 
 \#![CHATTER FOR YOUR chart](images/xl-refresher-grid_SHEETS.png)
 
