@@ -7,6 +7,16 @@ format:
     theme: cosmo
 ---
 
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+library(tidyverse)
+library(sentimentr)
+library(tidyr)
+```
+
+
 # Hosting a GitHub Page - R Cheat Sheet
 
 This exercise will allow you to create a basic web page which will be required for the Investigate Your Community final project option.
@@ -140,20 +150,16 @@ From a **Datawrapper Map**
 
 ## Embedding video
 
-### Silver Springs by Fleetwood Mac performed live in 1997
+### AI at Maryland | Shaping the Future of AI
 
 ::: {#first_steps}
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eDwi-8n054s?si=eJjx51AcFVToFG0n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PKyU06BYtmo?si=b4Sxhk9JAafpxUcL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 
 ::: {#second_steps}
 ### Somebody That I Used To Know performed live
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Vs2g3m-VvSc?si=ehVNYYHME03hOI3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-</iframe>
 :::
 
 **Now replace these two videos with something you selected.**
