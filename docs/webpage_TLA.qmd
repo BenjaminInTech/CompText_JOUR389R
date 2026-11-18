@@ -1,0 +1,260 @@
+---
+title: "Render A Webpage"
+author: "Benji Leung"
+date: "11-18-2026"
+format:
+  html:
+    theme: cosmo
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+library(tidyverse)
+library(janitor)
+library(dplyr)
+library(tidytext)
+library(sentimentr)
+library(magrittr)
+library(quanteda)
+library(readtext)
+library(ggplot2)
+library(tidyr)
+library(DT)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_fulltext <- read_csv("DTS_articles_fulltext.csv")
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+bigrams <- DTS_fulltext |> 
+  unnest_tokens(bigram, sentence, token="ngrams", n=2)
+
+bigrams
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+data(stop_words)
+
+bigrams |> 
+  filter(!is.na(bigram)) |> 
+  separate(bigram, c("word1", "word2"), sep = " ") |> 
+  filter(!word1 %in% stop_words$word) |> 
+  filter(!word2 %in% stop_words$word) |> 
+  count(word1, word2)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+bigram_filtered <- bigrams |> 
+  filter(!is.na(bigram)) |> 
+  separate(bigram, c("word1", "word2"), sep = " ") |> 
+  filter(!word1 %in% stop_words$word) |> 
+  filter(!word2 %in% stop_words$word) |> 
+  count(word1, word2, sort = TRUE)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_analyze <- DTS_fulltext |> 
+  filter(!is.na(sentence)) |> 
+  select(sentence, id) |> 
+  mutate(id = row_number())
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_sentiment <- DTS_analyze %>%
+  get_sentences() %>%
+  sentiment_by(by = c("id"))
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_to_token <- DTS_fulltext |> 
+  filter(!is.na(sentence))
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_corpus <- corpus(DTS_to_token, text_field = "sentence") # build a new corpus from the texts
+head(DTS_corpus)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_tokens <- tokens(DTS_corpus)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_KWIC <- kwic(DTS_tokens, phrase(c("deaf", "artificial intelligence", "AI", "deaf sentiment", "sign", "sign language", "sentiment", "access*", "accessibility solutions", "disabilit*", "hearing", "language barrier", "RIT", "Rochester", "language development", "rylo", "disabled", "communication")), window = 50) |> as.data.frame()
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+KWIC_IDs <- DTS_KWIC |> 
+  select(docname) |> 
+  mutate(id = as.numeric(sub("text", "", docname))) |> 
+  select(id) |> 
+  distinct(id, .keep_all = TRUE)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+KWIC_to_analyze <- DTS_analyze |> 
+  filter(id %in% KWIC_IDs$id)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+KWIC_bigram <- KWIC_to_analyze |> 
+  unnest_tokens(bigram, sentence, token="ngrams", n=2)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+KWIC_bigram_filtered <- KWIC_bigram |> 
+  filter(!is.na(bigram)) |> 
+  separate(bigram, c("word1", "word2"), sep = " ") |> 
+  filter(!word1 %in% stop_words$word) |> 
+  filter(!word2 %in% stop_words$word) |> 
+  count(word1, word2, sort = TRUE)
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_KWIC_analyze <- KWIC_to_analyze |> 
+  filter(!is.na(sentence)) |> 
+  select(sentence, id) |> 
+  mutate(id = row_number())
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+DTS_KWIC_sentiment <- DTS_KWIC_analyze %>%
+  get_sentences() %>%
+  sentiment_by(by = c("id"))
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+# Build a summary of each statistic for both datasets
+# Claude helped build this ggplot, idea was mine though.
+summary_stats <- bind_rows(
+  DTS_sentiment %>%
+    summarise(
+      Max    = max(ave_sentiment, na.rm = TRUE),
+      Min    = min(ave_sentiment, na.rm = TRUE),
+      Median = median(ave_sentiment, na.rm = TRUE),
+      SD     = sd(ave_sentiment, na.rm = TRUE)
+    ) %>% mutate(dataset = "All Articles"),
+  DTS_KWIC_sentiment %>%
+    summarise(
+      Max    = max(ave_sentiment, na.rm = TRUE),
+      Min    = min(ave_sentiment, na.rm = TRUE),
+      Median = median(ave_sentiment, na.rm = TRUE),
+      SD     = sd(ave_sentiment, na.rm = TRUE)
+    ) %>% mutate(dataset = "Keyword In Context Subset")
+) %>%
+  pivot_longer(-dataset, names_to = "statistic", values_to = "value") %>%
+  mutate(statistic = factor(statistic, levels = c("Max", "Min", "Median", "SD")))
+```
+
+## Overall Bigram
+A bigram done on all sentences in the Deaf-Technology-Sentiment dataset
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+datatable(bigram_filtered,
+          caption = "Bigram of all sentences",
+          options = list(pageLength = 10))
+```
+
+## KWIC Bigram
+
+A Keyword In Context analysis was ran on the Deaf-Technology-Sentiment dataset.
+This bigram is done on the sentences returned by the Keyword In Context process.
+
+**This focused bigram gives us a bigram that is focused on sentences closer to the intended context of Deaf-Technology-Sentiment.**
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+datatable(KWIC_bigram_filtered,
+          caption = "Bigrams focused on the KWIC sentences",
+          options = list(pageLength = 10))
+```
+
+## GGPLOT
+
+This is a grouped bar chart to compare the sentiment scores of sentences from all articles with the sentiment scores of sentences from the Keyword In Context analysis.
+
+We compare the most positive sentiments, most negative sentiments, the median sentiments, and the standard deviations in sentiment from both datasets
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+# Grouped bar chart
+ggplot(summary_stats, aes(x = statistic, y = value, fill = dataset)) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.7) +
+  geom_text(
+    aes(label = round(value, 2),
+        vjust = ifelse(value >= 0, -0.5, 1.5)),
+    position = position_dodge(width = 0.8),
+    size = 3.5
+  ) +
+  geom_hline(yintercept = 0, color = "gray40") +
+  scale_y_continuous(expand = expansion(mult = c(0.15, 0.15))) +
+  labs(
+    title = "Sentiment Summary Statistics: All Articles vs. Keyword In Context Subset",
+    x = NULL,
+    y = "Sentiment score",
+    fill = NULL
+  ) +
+  theme_minimal() +
+  theme(legend.position = "top")
+```
